@@ -10,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class TopBarComponent  {
 
     contactInfo = {
-    email: 'info@revital.ae',
-    phone: '+971-4-555-0133',
-    location: 'دبي، الإمارات',
+    email: 'info@revitalrehab.ae',
+    phone: '+971-3-7144-444',
+    location: 'العين، الإمارات',
     hours: 'السبت - الخميس: 9:00 صباحاً - 8:00 مساءً'
   };
 

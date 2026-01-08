@@ -16,7 +16,7 @@
     <div class="cards-container">
       <div class="row g-4">
         <div class="col-12 col-md-4" *ngFor="let item of items; let i = index">
-          <div class="value-card" [ngClass]="item.bgClass" [attr.data-index]="i">
+          <div class="value-card" [ngClass]="item.bgClass" >
             <div class="card-icon-wrapper">
               <div class="card-icon">
                 <i class="bi" [ngClass]="item.icon"></i>

@@ -11,7 +11,7 @@ import { SanitizeUrlPipe } from "../../Pipes/sanitize-url.pipe";
   styleUrls: ['./map-section.component.css']
 })
 export class MapSectionComponent {
-  mapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.0937742315825!2d55.27136931501659!3d25.096533983940195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b6b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sSheikh%20Zayed%20Road%2C%20Dubai!5e0!3m2!1sen!2sae!4v1234567890123!5m2!1sen!2sae';
+  mapUrl ='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.7326150074487!2d55.801462400000005!3d24.3319381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef54b682fdb7e2b%3A0x6afd2508aa5021ae!2z2YXYs9iq2LTZgdmJINix2YrZgdmK2KrYp9mEINmE2YTYqtij2YfZitmE!5e1!3m2!1sar!2seg!4v1767881589825!5m2!1sar!2seg';
   
   address = {
     title: 'العنوان التفصيلي:',

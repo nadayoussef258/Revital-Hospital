@@ -75,21 +75,21 @@ import { CommonModule } from '@angular/common';
                     <i class="bi bi-geo-alt-fill"></i>
                     <div>
                       <strong>العنوان:</strong>
-                      <p>شارع الصحة 123، دبي<br>الإمارات العربية المتحدة</p>
+                      <p>  شارع الطَّوَّاش، العين<br>الإمارات العربية المتحدة</p>
                     </div>
                   </li>
                   <li class="contact-item">
                     <i class="bi bi-envelope-fill"></i>
                     <div>
                       <strong>البريد الإلكتروني:</strong>
-                      <p><a href="mailto:info@revitalhospital.ae">info@revitalhospital.ae</a></p>
+                      <p><a href="mailto:info@revitalrehab.ae">info@revitalrehab.ae</a></p>
                     </div>
                   </li>
                   <li class="contact-item">
                     <i class="bi bi-telephone-fill"></i>
                     <div>
                       <strong>الهاتف:</strong>
-                      <p><a href="tel:+97145551234" dir="ltr">+971 4 555 1234</a></p>
+                      <p><a href="tel:+97137144444" dir="ltr">+9713 7144 444</a></p>
                     </div>
                   </li>
                 </ul>

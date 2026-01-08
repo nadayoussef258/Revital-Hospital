@@ -282,43 +282,43 @@ interface Doctor {
 export class TeamComponent {
   doctors: Doctor[] = [
     {
-      name: 'د. سارة أحمد',
-      specialty: 'استشارية أمراض القلب',
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600',
+      name: 'د. إبراهيم حسن',
+      specialty: 'أخصائي طب الأطفال',
+      image: 'https://www.shutterstock.com/image-photo/portrait-handsome-male-doctor-stethoscope-600nw-2480850611.jpg',
       experience: '+15 سنة خبرة',
       education: 'كلية الطب جامعة هارفارد'
     },
     {
-      name: 'د. محمد العلي',
-      specialty: 'استشاري طب الأعصاب',
+      name: 'د. عمر مهدي',
+      specialty: 'أخصائي جراحة العظام والإصابات',
       image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600',
       experience: '+12 سنة خبرة',
       education: 'جامعة جونز هوبكنز'
     },
     {
-      name: 'د. فاطمة حسن',
-      specialty: 'استشارية طب الأطفال',
+      name: 'د.  إيمان عمر عبدالله',
+      specialty: 'أخصائي الطب الباطني',
       image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600',
       experience: '+10 سنوات خبرة',
       education: 'كلية الطب جامعة ستانفورد'
     },
     {
-      name: 'د. عمر الشامسي',
-      specialty: 'استشاري جراحة العظام',
+      name: 'د. إيهاب صادق',
+      specialty: '  طبيب أسنان',
       image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600',
       experience: '+18 سنة خبرة',
       education: 'كلية الطب جامعة ييل'
     },
     {
-      name: 'د. منى الكعبي',
-      specialty: 'استشارية الأمراض الجلدية',
+      name: 'د. فاطمة خيري',
+      specialty: '  طبيب عام',
       image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=600',
       experience: '+8 سنوات خبرة',
       education: 'جامعة كولومبيا'
     },
     {
-      name: 'د. خالد المزروعي',
-      specialty: 'استشاري الجراحة العامة',
+      name: 'د. محمود ياسين رحال',
+      specialty: '  المدير العام',
       image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600',
       experience: '+20 سنة خبرة',
       education: 'عيادة مايو كلينك'

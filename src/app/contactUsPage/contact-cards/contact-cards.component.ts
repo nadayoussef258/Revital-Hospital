@@ -15,24 +15,22 @@ export class ContactCardsComponent {
       icon: 'bi-telephone-fill',
       title: 'اتصل بنا',
       details: [
-        { label: 'موبايل:', value: '+971-50-123-4567' },
-        { label: 'هاتف:', value: '+971-4-555-0133' }
+        { label: '', value: '+971 3 714 4444' }
       ]
     },
     {
       icon: 'bi-geo-alt-fill',
       title: 'عنواننا',
       details: [
-        { label: '', value: 'شارع الشيخ زايد' },
-        { label: '', value: 'دبي، الإمارات العربية المتحدة' }
+        // { label: '', value: 'شارع الشيخ زايد' },
+        { label: '', value: 'العين، الإمارات العربية المتحدة' }
       ]
     },
     {
       icon: 'bi-envelope-fill',
       title: 'راسلنا',
       details: [
-        { label: '', value: 'info@revital.ae' },
-        { label: '', value: 'contact@revital.ae' }
+        { label: '', value: 'info@revitalrehab.ae' },
       ]
     }
   ];

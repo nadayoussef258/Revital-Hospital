@@ -90,6 +90,7 @@
 /* Mission Card */
 .mission-card {
   animation-delay: 0.1s;
+  
 }
 
 .mission-card .card-icon {
@@ -101,7 +102,7 @@
 }
 
 .mission-card .card-title {
-  color: #68A8D8;
+  color: #2E7DB5;
 }
 
 /* Goals Card */
@@ -114,7 +115,7 @@
 }
 
 .goals-card .card-title {
-  color: #A8D0ED;
+  color: #2E7DB5;
 }
 
 /* Card Elements */

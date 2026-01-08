@@ -10,7 +10,7 @@ interface Slide {
 }
 @Component({
   selector: 'app-heroSection',
-  imports:[CommonModule],
+  imports: [CommonModule],
   templateUrl: './heroSection.component.html',
   styleUrls: ['./heroSection.component.css']
 })
@@ -25,35 +25,35 @@ export class HeroSectionComponent implements OnInit,OnDestroy  {
 
   slides: Slide[] = [
     {
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80',
+      image: 'https://lh3.googleusercontent.com/p/AF1QipN2mV8uD_YbjBXc0fO766duE028q1yy4UBk3Yad=s1360-w1360-h1020-rw',
       title: 'مرحباً بكم في مستشفى ريفيتال',
-      subtitle: 'أفضل الخدمات الطبية التي تستحقها',
-      description: 'أطباؤنا المتخصصون متعاطفون ومحترفون للغاية في التعامل مع صحتك. لديهم خبرة كبيرة في المجال الطبي',
-      buttonText: 'احجز موعدك',
-      buttonLink: '/appointment'
+      subtitle: 'رعاية صحية بمعايير عالمية',
+description: 'يعمل فريقنا الطبي باحترافية عالية لتقديم رعاية صحية شاملة تضع المريض في المقام الأول',
+ buttonText: 'احجز موعدك',
+      buttonLink: '/contact'
     },
     {
       image: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1920&q=80',
       title: 'رعاية صحية متكاملة',
-      subtitle: 'أحدث التقنيات الطبية في الإمارات',
+      subtitle: 'أحدث التقنيات الطبية',
       description: 'نقدم خدمات طبية شاملة بأحدث التقنيات والأجهزة الطبية المتطورة لضمان أفضل رعاية صحية لك ولعائلتك',
       buttonText: 'تعرف على خدماتنا',
-      buttonLink: '/services'
+      buttonLink: '/#services'
     },
     {
-      image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=1920&q=80',
+      image: 'https://lh3.googleusercontent.com/p/AF1QipOjVcQ8XfRP6JbScLit-nksClSHH0sCkT7T9XDL=s1360-w1360-h1020-rw',
       title: 'فريق طبي متميز',
-      subtitle: 'خبراء في جميع التخصصات الطبية',
-      description: 'نفخر بفريقنا الطبي المؤهل من أفضل الأطباء والاستشاريين في مختلف التخصصات الطبية',
+subtitle: 'فريق طبي متخصص ومحترف',
+description: 'يضم المستشفى فريقًا طبيًا مؤهلاً يعمل وفق أفضل الممارسات الطبية وبنهج إنساني',
       buttonText: 'تعرف على أطبائنا',
-      buttonLink: '/doctors'
+      buttonLink: '/#team'
     },
     {
       image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&q=80',
-      title: 'خدمة طوارئ 24/7',
-      subtitle: 'نحن في خدمتك على مدار الساعة',
-      description: 'قسم طوارئ مجهز بالكامل ومتاح على مدار الساعة طوال أيام الأسبوع للتعامل مع جميع الحالات الطارئة',
-      buttonText: 'اتصل بنا الآن',
+     title: 'رعاية طبية مستمرة',
+subtitle: 'جاهزون لخدمتكم',
+description: 'نحرص على توفير رعاية طبية موثوقة وسريعة وفق أعلى معايير الجودة والسلامة',
+ buttonText: 'اتصل بنا الآن',
       buttonLink: '/contact'
     }
   ];

@@ -19,12 +19,12 @@ import { CommonModule } from '@angular/common';
               </h2>
               <div class="title-underline"></div>
               
-              <p class="about-description">
-                مستشفى ريفيتال هي مؤسسة طبية رائدة في دولة الإمارات العربية المتحدة، نقدم 
-                خدمات رعاية صحية متكاملة وفق أعلى المعايير العالمية. نحن نؤمن بأن صحتكم 
-                هي أولويتنا القصوى، ونسعى دائماً لتوفير بيئة علاجية متطورة تجمع بين 
-                الخبرة الطبية العريقة والتقنيات الحديثة.
-              </p>
+            <p class="about-description">
+  مستشفى ريفيتال هي مؤسسة طبية رائدة في دولة الإمارات العربية المتحدة،
+  نلتزم بتقديم أعلى مستويات الرعاية الصحية باستخدام أحدث التقنيات الطبية
+  وأفضل الممارسات العالمية، مع التركيز على راحة المريض وتحقيق أفضل النتائج
+  الصحية الممكنة.
+</p>
 
               <div class="row mt-4">
                 <div class="col-md-6">
@@ -40,10 +40,12 @@ import { CommonModule } from '@angular/common';
                 <div class="col-md-6">
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
-                    <span>وحدات عناية مركزة متطورة</span>
+                    <span>   خدمات طبية متكاملة</span>
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
+                    <!-- Not Found in file -->
+
                     <span>قسم طوارئ متاح على مدار الساعة</span>
                   </div>
                 </div>
