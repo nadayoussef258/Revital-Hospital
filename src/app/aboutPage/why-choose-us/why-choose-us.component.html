@@ -1,0 +1,42 @@
+<section class="why-choose-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center mb-5">
+      <span class="section-tag">لماذا تختارنا</span>
+      <h2 class="section-title">
+        لماذا تختار ريفيتال؟
+      </h2>
+      <p class="section-subtitle">
+        نقدم لك تجربة رعاية صحية استثنائية
+      </p>
+    </div>
+
+    <!-- Reasons Cards -->
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let reason of reasons; let i = index">
+        <div class="reason-card" [attr.data-color]="reason.color" [attr.data-index]="i">
+          <div class="card-background"></div>
+          
+          <div class="icon-container">
+            <div class="icon-wrapper">
+              <i class="bi" [ngClass]="reason.icon"></i>
+            </div>
+            <div class="icon-glow"></div>
+          </div>
+          
+          <h3 class="card-title">{{ reason.title }}</h3>
+          <p class="card-description">{{ reason.description }}</p>
+          
+       
+          
+          <div class="corner-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Floating Elements -->
+  <div class="floating-element element-1"></div>
+  <div class="floating-element element-2"></div>
+  <div class="floating-element element-3"></div>
+</section>

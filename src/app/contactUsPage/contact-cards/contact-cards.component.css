@@ -1,0 +1,71 @@
+.contact-cards-section {
+  position: relative;
+  margin-top: -80px;
+  z-index: 20;
+  padding: 0 15px 4rem;
+}
+
+.contact-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(46, 125, 181, 0.1);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.contact-card:hover {
+  box-shadow: 0 8px 30px rgba(46, 125, 181, 0.15);
+  transform: translateY(-5px);
+}
+
+.icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: #E8F3F9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.icon-wrapper i {
+  font-size: 2rem;
+  color: #2E7DB5;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1A2332;
+  margin-bottom: 1.5rem;
+}
+
+.card-details {
+  color: #5A6C7D;
+}
+
+.detail-item {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.detail-label {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .contact-cards-section {
+    margin-top: -60px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+}

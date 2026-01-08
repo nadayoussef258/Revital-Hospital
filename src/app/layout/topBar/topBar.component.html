@@ -1,0 +1,39 @@
+<div class="top-bar">
+  <div class="container-fluid">
+    <div class="row align-items-center py-2">
+      <div class="col-lg-8 col-md-7">
+        <div class="contact-info d-flex flex-wrap align-items-center gap-4">
+          <a href="mailto:{{ contactInfo.email }}" class="contact-item">
+            <i class="bi bi-envelope-fill me-2"></i>
+            <span>{{ contactInfo.email }}</span>
+          </a>
+          <a href="tel:{{ contactInfo.phone }}" class="contact-item">
+            <i class="bi bi-telephone-fill me-2"></i>
+            <span>{{ contactInfo.phone }}</span>
+          </a>
+          <div class="contact-item">
+            <i class="bi bi-geo-alt-fill me-2"></i>
+            <span>{{ contactInfo.location }}</span>
+          </div>
+          <div class="contact-item d-none d-lg-flex">
+            <i class="bi bi-clock-fill me-2"></i>
+            <span>{{ contactInfo.hours }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5">
+        <div class="social-links d-flex justify-content-end align-items-center gap-2">
+          <a 
+            *ngFor="let social of socialLinks" 
+            [href]="social.url" 
+            [attr.aria-label]="social.label"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="bi bi-{{ social.icon }}"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

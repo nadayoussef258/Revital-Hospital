@@ -1,0 +1,120 @@
+<section class="contact-form-section">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-tag">تواصل معنا</span>
+      <h2 class="section-title">
+        إذا كنت بحاجة لأي معلومات<br />
+        تواصل معنا
+      </h2>
+      <div class="title-underline"></div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- Form Column -->
+      <div class="col-12 col-lg-6">
+        <div class="form-card h-100">
+          <div class="form-header">
+            <i class="bi bi-chat-dots-fill form-header-icon"></i>
+            <h3 class="form-header-title">أرسل لنا رسالة</h3>
+            <p class="form-header-subtitle">سنرد عليك في أقرب وقت ممكن</p>
+          </div>
+
+          <!-- Name Input -->
+          <div class="input-group-custom mb-3">
+            <div class="input-icon">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <input 
+              type="text" 
+              class="form-control custom-input" 
+              [(ngModel)]="formData.name"
+              placeholder="الاسم الكامل"
+              required>
+          </div>
+
+          <!-- Email Input -->
+          <div class="input-group-custom mb-3">
+            <div class="input-icon">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <input 
+              type="email" 
+              class="form-control custom-input" 
+              [(ngModel)]="formData.email"
+              placeholder="البريد الإلكتروني"
+              required>
+          </div>
+
+          <!-- Phone Input -->
+          <div class="input-group-custom mb-3">
+            <div class="input-icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <input 
+            
+              type="tel" 
+              class="form-control custom-input" 
+              [(ngModel)]="formData.phone"
+              placeholder="رقم الهاتف"
+              required>
+          </div>
+
+          <!-- Subject Input -->
+          <div class="input-group-custom mb-3">
+            <div class="input-icon">
+              <i class="bi bi-chat-left-text-fill"></i>
+            </div>
+            <input 
+              type="text" 
+              class="form-control custom-input" 
+              [(ngModel)]="formData.subject"
+              placeholder="الموضوع"
+              required>
+          </div>
+
+          <!-- Message Textarea -->
+          <div class="input-group-custom mb-4">
+            <div class="input-icon textarea-icon">
+              <i class="bi bi-pencil-fill"></i>
+            </div>
+            <textarea 
+              class="form-control custom-input custom-textarea" 
+              [(ngModel)]="formData.message"
+              rows="5"
+              placeholder="اكتب رسالتك هنا..."
+              required></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="button" 
+            class="btn btn-primary custom-btn w-100"
+            (click)="onSubmit()">
+            <i class="bi bi-send-fill me-2"></i>
+            إرسال الرسالة
+          </button>
+
+          <!-- Status Alert -->
+          <div *ngIf="formStatus" 
+               class="alert mt-3 mb-0"
+               [ngClass]="{'alert-success': statusType === 'success', 'alert-warning': statusType === 'error'}">
+            <i class="bi" 
+               [ngClass]="{'bi-check-circle-fill': statusType === 'success', 'bi-exclamation-triangle-fill': statusType === 'error'}"></i>
+            {{ formStatus }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div class="col-12 col-lg-6">
+        <div class="image-wrapper h-100">
+          <img 
+            src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+            alt="أطباء مستشفى ريفيتال"
+            class="form-image">
+       
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

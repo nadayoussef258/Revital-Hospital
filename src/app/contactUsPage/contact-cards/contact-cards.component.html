@@ -1,0 +1,20 @@
+<div class="contact-cards-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4" *ngFor="let card of cards">
+        <div class="contact-card">
+          <div class="icon-wrapper">
+            <i class="bi {{ card.icon }}"></i>
+          </div>
+          <h3 class="card-title">{{ card.title }}</h3>
+          <div class="card-details">
+            <p *ngFor="let detail of card.details" class="detail-item">
+              <span *ngIf="detail.label" class="detail-label">{{ detail.label }}</span>
+              <span [dir]="detail.value.includes('+') ? 'ltr' : 'rtl'">{{ detail.value }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
