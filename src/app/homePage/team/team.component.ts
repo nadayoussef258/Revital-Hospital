@@ -5,9 +5,7 @@ import { CommonModule } from '@angular/common';
 interface Doctor {
   name: string;
   specialty: string;
-  image: string;
-  experience: string;
-  education: string;
+  gender: 'male' | 'female';
 }
 
 @Component({
@@ -28,45 +26,15 @@ interface Doctor {
         <div class="row g-4">
           <div class="col-lg-4 col-md-6" *ngFor="let doctor of doctors">
             <div class="doctor-card">
-              <div class="doctor-image-wrapper">
-                <img [src]="doctor.image" 
-                     [alt]="doctor.name" 
-                     class="doctor-image">
-                <div class="doctor-overlay">
-                  <div class="social-links">
-                    <a href="#" class="social-icon" aria-label="Facebook">
-                      <i class="bi bi-facebook"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Twitter">
-                      <i class="bi bi-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="LinkedIn">
-                      <i class="bi bi-linkedin"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Instagram">
-                      <i class="bi bi-instagram"></i>
-                    </a>
-                  </div>
+              <div class="doctor-icon-wrapper">
+                <div class="doctor-icon">
+                  <i [class]="doctor.gender === 'male' ? 'bi bi-person' : 'bi bi-person-standing-dress'"></i>
                 </div>
               </div>
               
               <div class="doctor-info">
                 <h3 class="doctor-name">{{ doctor.name }}</h3>
                 <p class="doctor-specialty">{{ doctor.specialty }}</p>
-                <div class="doctor-details">
-                  <div class="detail-item">
-                    <i class="bi bi-award"></i>
-                    <span>{{ doctor.experience }}</span>
-                  </div>
-                  <div class="detail-item">
-                    <i class="bi bi-mortarboard"></i>
-                    <span>{{ doctor.education }}</span>
-                  </div>
-                </div>
-                <!-- <button class="btn-appointment">
-                  احجز موعد
-                  <i class="bi bi-calendar-check"></i>
-                </button> -->
               </div>
             </div>
           </div>
@@ -84,175 +52,119 @@ interface Doctor {
 
     .section-label {
       color: #2E7DB5;
-      font-weight: 600;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(46, 125, 181, 0.08);
+      border-radius: 25px;
     }
 
     .section-title {
       color: #1A2332;
       font-size: 42px;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.3;
       margin-bottom: 20px;
     }
 
     .title-underline {
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, #2E7DB5, #68A8D8);
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(90deg, #2E7DB5, #68A8D8, #A8D0ED);
       margin-bottom: 50px;
+      border-radius: 10px;
     }
 
     .doctor-card {
-      background-color: #FFFFFF;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(46, 125, 181, 0.1);
-      transition: all 0.4s ease;
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 50px 30px 40px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(46, 125, 181, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #E8F3F9;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .doctor-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 20px 50px rgba(46, 125, 181, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(46, 125, 181, 0.15);
+      border-color: #A8D0ED;
     }
 
-    .doctor-image-wrapper {
-      position: relative;
-      overflow: hidden;
-      height: 400px;
+    .doctor-icon-wrapper {
+      margin-bottom: 25px;
     }
 
-    .doctor-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .doctor-card:hover .doctor-image {
-      transform: scale(1.1);
-    }
-
-    .doctor-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to bottom, transparent 0%, rgba(46, 125, 181, 0.9) 100%);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 30px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .doctor-card:hover .doctor-overlay {
-      opacity: 1;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .social-icon {
-      width: 45px;
-      height: 45px;
-      background-color: #FFFFFF;
+    .doctor-icon {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #2E7DB5 0%, #68A8D8 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2E7DB5;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      transform: translateY(20px);
-      opacity: 0;
+      margin: 0 auto;
+      box-shadow: 0 8px 25px rgba(46, 125, 181, 0.25);
+      transition: all 0.4s ease;
+      position: relative;
     }
 
-    .doctor-card:hover .social-icon {
-      transform: translateY(0);
-      opacity: 1;
+    .doctor-icon::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid rgba(46, 125, 181, 0.2);
+      transition: all 0.4s ease;
     }
 
-    .doctor-card:hover .social-icon:nth-child(1) { transition-delay: 0.1s; }
-    .doctor-card:hover .social-icon:nth-child(2) { transition-delay: 0.2s; }
-    .doctor-card:hover .social-icon:nth-child(3) { transition-delay: 0.3s; }
-    .doctor-card:hover .social-icon:nth-child(4) { transition-delay: 0.4s; }
+    .doctor-card:hover .doctor-icon {
+      transform: scale(1.1);
+      box-shadow: 0 12px 35px rgba(46, 125, 181, 0.35);
+    }
 
-    .social-icon:hover {
-      background-color: #68A8D8;
+    .doctor-card:hover .doctor-icon::before {
+      inset: -12px;
+      border-color: rgba(46, 125, 181, 0.3);
+    }
+
+    .doctor-icon i {
+      font-size: 60px;
       color: #FFFFFF;
-      transform: translateY(-5px);
+      transition: transform 0.3s ease;
+    }
+
+    .doctor-card:hover .doctor-icon i {
+      transform: scale(1.1);
     }
 
     .doctor-info {
-      padding: 30px;
-      text-align: center;
+      width: 100%;
     }
 
     .doctor-name {
-      color: #2E7DB5;
+      color: #1A2332;
       font-size: 24px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      line-height: 1.3;
     }
 
     .doctor-specialty {
       color: #5A6C7D;
       font-size: 16px;
-      margin-bottom: 20px;
       font-weight: 500;
-    }
-
-    .doctor-details {
-      margin-bottom: 25px;
-    }
-
-    .detail-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      color: #5A6C7D;
-      font-size: 14px;
-    }
-
-    .detail-item i {
-      color: #2E7DB5;
-      font-size: 18px;
-    }
-
-    .btn-appointment {
-      background: linear-gradient(135deg, #2E7DB5, #68A8D8);
-      color: #FFFFFF;
-      border: none;
-      padding: 12px 35px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(46, 125, 181, 0.3);
-    }
-
-    .btn-appointment:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(46, 125, 181, 0.4);
-      background: linear-gradient(135deg, #68A8D8, #A8D0ED);
-    }
-
-    .btn-appointment i {
-      font-size: 18px;
+      margin-bottom: 0;
+      line-height: 1.5;
     }
 
     @media (max-width: 768px) {
@@ -264,16 +176,24 @@ interface Doctor {
         font-size: 32px;
       }
       
-      .doctor-image-wrapper {
-        height: 350px;
+      .doctor-card {
+        padding: 40px 25px 35px;
+      }
+
+      .doctor-icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .doctor-icon i {
+        font-size: 50px;
       }
 
       .doctor-name {
-        font-size: 22px;
+        font-size: 20px;
       }
 
-      .btn-appointment {
-        padding: 10px 30px;
+      .doctor-specialty {
         font-size: 15px;
       }
     }
@@ -284,44 +204,32 @@ export class TeamComponent {
     {
       name: 'د. إبراهيم حسن',
       specialty: 'أخصائي طب الأطفال',
-      image: 'https://www.shutterstock.com/image-photo/portrait-handsome-male-doctor-stethoscope-600nw-2480850611.jpg',
-      experience: '+15 سنة خبرة',
-      education: 'كلية الطب جامعة هارفارد'
+      gender: 'male'
     },
     {
       name: 'د. عمر مهدي',
       specialty: 'أخصائي جراحة العظام والإصابات',
-      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600',
-      experience: '+12 سنة خبرة',
-      education: 'جامعة جونز هوبكنز'
+      gender: 'male'
     },
     {
-      name: 'د.  إيمان عمر عبدالله',
+      name: 'د. إيمان عمر عبدالله',
       specialty: 'أخصائي الطب الباطني',
-      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600',
-      experience: '+10 سنوات خبرة',
-      education: 'كلية الطب جامعة ستانفورد'
+      gender: 'female'
     },
     {
       name: 'د. إيهاب صادق',
-      specialty: '  طبيب أسنان',
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600',
-      experience: '+18 سنة خبرة',
-      education: 'كلية الطب جامعة ييل'
+      specialty: 'طبيب أسنان',
+      gender: 'male'
     },
     {
       name: 'د. فاطمة خيري',
-      specialty: '  طبيب عام',
-      image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=600',
-      experience: '+8 سنوات خبرة',
-      education: 'جامعة كولومبيا'
+      specialty: 'طبيب عام',
+      gender: 'female'
     },
     {
       name: 'د. محمود ياسين رحال',
-      specialty: '  المدير العام',
-      image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600',
-      experience: '+20 سنة خبرة',
-      education: 'عيادة مايو كلينك'
+      specialty: 'المدير العام',
+      gender: 'male'
     }
   ];
 }

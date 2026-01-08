@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 interface Service {
   icon: string;
   title: string;
+  titleEn: string;
   description: string;
 }
 
@@ -30,6 +31,7 @@ interface Service {
                 <i [class]="'bi bi-' + service.icon"></i>
               </div>
               <h3 class="service-title">{{ service.title }}</h3>
+              <p class="service-title-en">{{ service.titleEn }}</p>
               <p class="service-description">{{ service.description }}</p>
             </div>
           </div>
@@ -39,43 +41,68 @@ interface Service {
   `,
   styles: [`
     .services-section {
-      background-color: #F5F8FA;
+      background: linear-gradient(135deg, #F5F8FA 0%, #E8F3F9 100%);
       padding: 80px 0;
       direction: rtl;
       font-family: 'Cairo', 'Tajawal', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(46, 125, 181, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(168, 208, 237, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
     }
 
     .section-label {
       color: #2E7DB5;
-      font-weight: 600;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(46, 125, 181, 0.08);
+      border-radius: 25px;
     }
 
     .section-title {
       color: #1A2332;
       font-size: 42px;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.3;
       margin-bottom: 20px;
     }
 
     .title-underline {
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, #2E7DB5, #68A8D8);
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(90deg, #2E7DB5, #68A8D8, #A8D0ED);
       margin-bottom: 50px;
+      border-radius: 10px;
     }
 
     .service-card {
-      background-color: #FFFFFF;
-      padding: 40px 30px;
-      border-radius: 15px;
-      border: 2px solid #E1E8ED;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 10px rgba(46, 125, 181, 0.05);
+      background: #FFFFFF;
+      padding: 45px 35px;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(46, 125, 181, 0.08);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -87,63 +114,113 @@ interface Service {
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
+      height: 5px;
       background: linear-gradient(90deg, #2E7DB5, #68A8D8, #A8D0ED);
       transform: scaleX(0);
-      transition: transform 0.4s ease;
+      transform-origin: right;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(46, 125, 181, 0.03), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
 
     .service-card:hover::before {
       transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .service-card:hover::after {
+      opacity: 1;
     }
 
     .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(46, 125, 181, 0.15);
-      border-color: #68A8D8;
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(46, 125, 181, 0.18);
+      border-color: rgba(104, 168, 216, 0.3);
     }
 
     .service-icon {
-      width: 90px;
-      height: 90px;
-      background: linear-gradient(135deg, #E8F3F9, #FFFFFF);
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #E8F3F9 0%, #F5F8FA 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 25px;
-      transition: all 0.4s ease;
-      box-shadow: 0 5px 20px rgba(46, 125, 181, 0.1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(46, 125, 181, 0.12);
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-icon::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      background: linear-gradient(135deg, #2E7DB5, #68A8D8);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
     }
 
     .service-card:hover .service-icon {
-      background: linear-gradient(135deg, #2E7DB5, #68A8D8);
-      transform: scale(1.1) rotate(360deg);
-      box-shadow: 0 10px 30px rgba(46, 125, 181, 0.3);
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 15px 40px rgba(46, 125, 181, 0.25);
+    }
+
+    .service-card:hover .service-icon::before {
+      opacity: 1;
     }
 
     .service-icon i {
-      font-size: 42px;
+      font-size: 48px;
       color: #2E7DB5;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .service-card:hover .service-icon i {
       color: #FFFFFF;
+      transform: scale(1.1);
     }
 
     .service-title {
       color: #1A2332;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 15px;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      transition: color 0.3s ease;
+    }
+
+    .service-card:hover .service-title {
+      color: #2E7DB5;
+    }
+
+    .service-title-en {
+      color: #336286ff;
+      font-size: 18px;
+      font-weight: 800;
+      // text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+      opacity: 0.85;
+      direction: ltr;
     }
 
     .service-description {
       color: #5A6C7D;
       font-size: 16px;
-      line-height: 1.8;
+      line-height: 1.9;
       margin-bottom: 0;
+      font-weight: 500;
     }
 
     @media (max-width: 768px) {
@@ -156,20 +233,24 @@ interface Service {
       }
       
       .service-card {
-        padding: 30px 20px;
+        padding: 35px 25px;
       }
 
       .service-icon {
-        width: 80px;
-        height: 80px;
+        width: 85px;
+        height: 85px;
       }
 
       .service-icon i {
-        font-size: 36px;
+        font-size: 40px;
       }
 
       .service-title {
         font-size: 22px;
+      }
+
+      .service-title-en {
+        font-size: 12px;
       }
 
       .service-description {
@@ -180,81 +261,59 @@ interface Service {
 })
 export class ServicesComponent {
   services: Service[] = [
-  {
-    icon: 'hospital',
-    title: 'العيادات الخارجية التخصصية',
-    description: 'تضم طب الأسرة، الباطني، الأطفال، الأسنان، والجراحة العامة لتقديم رعاية طبية أولية متكاملة.'
-  },
-  {
-    icon: 'activity',
-    title: 'جراحة العظام والطب الرياضي',
-    description: 'خدمات متخصصة في جراحة العظام، الطب الفيزيائي والتأهيل، وعلاج الإصابات الرياضية.'
-  },
-  {
-    icon: 'droplet',
-    title: 'العلاج المائي (Hydrotherapy)',
-    description: 'تخفيف آلام المفاصل والظهر، تحسين الحركة، وتأهيل ما بعد الإصابات أو الجراحة باستخدام الماء.'
-  },
-  {
-    icon: 'thermometer-snow',
-    title: 'مختبر الثلج (Cryotherapy)',
-    description: 'علاج الجسم بالتبريد لتقليل الالتهابات، تورم العضلات، وتحسين الدورة الدموية والأداء البدني.'
-  },
-  {
-    icon: 'person-check',
-    title: 'خدمات المعالجة المتخصصة',
-    description: 'تشمل العلاج الوظيفي، العلاج الطبيعي، العلاج التنفسي، وعلاج النطق واللغة.'
-  },
-  {
-    icon: 'clipboard-plus',
-    title: 'الطب الصيني والبديل',
-    description: 'نقدم جلسات الوخز بالإبر الصينية والحجامة لعلاج الألم المزمن، التوتر، واضطرابات النوم.'
-  },
-  {
-    icon: 'lightning-charge',
-    title: 'التقنيات العلاجية الحديثة',
-    description: 'العلاج بالمغناطيسية لسلس البول، العلاج بالتيرا هيرتز، والعلاج بالتسريب الوريدي.'
-  },
-  {
-    icon: 'apple',
-    title: 'التغذية والحمية الغذائية',
-    description: 'استشارات تغذية متخصصة لتعزيز الصحة العامة ودعم الخطط العلاجية للمرضى.'
-  },
-  // {
-  //   icon: 'lightning-charge',
-  //   title: 'العلاج بالتيرا هيرتز (Terahertz)',
-  //   description: 'تقنية غير جراحية مبتكرة لتعزيز تعافي الأنسجة، تحسين الدورة الدموية، ودعم الجهاز العصبي والقلب.'
-  // },
-  {
-    icon: 'activity',
-    title: 'تحليل طريقة المشي والتدريب',
-    description: 'استخدام تقنيات عالية الدقة لتحليل الحركة وتصميم برامج تأهيلية متخصصة لتحسين التوازن والمشي.'
-  },
-  // {
-  //   icon: 'shield-check',
-  //   title: 'علاج سلس البول بالمغناطيس',
-  //   description: 'جلسات غير مؤلمة لتقوية عضلات قاع الحوض وتحسين التحكم في المثانة والأمعاء لرفع جودة الحياة.'
-  // },
-  // {
-  //   icon: 'fire',
-  //   title: 'العلاج بالكي (Moxibustion)',
-  //   description: 'من طب الطب البديل لتعزيز المناعة، تخفيف الألم والتيبس، وتحسين الصحة العامة والجهاز الهضمي.'
-  // },
-  // {
-  //   icon: 'heart-pulse',
-  //   title: 'الرعاية المتكاملة للأسنان والتغذية',
-  //   description: 'نهج فريد يربط بين صحة الفم والنظام الغذائي للوقاية من أمراض السمنة والسكري ودعم الفئات الأكثر عرضة للخطر.'
-  // },
-  // {
-  //   icon: 'hospital',
-  //   title: 'منشأة تنويم المرضى الداخليين',
-  //   description: 'غرف إقامة مجهزة بأعلى معايير الراحة لتقديم رعاية طبية متكاملة على مدار 24 ساعة تحت إشراف فريق متخصص.'
-  // },
-  // {
-  //   icon: 'clipboard2-pulse',
-  //   title: 'الخدمات التشخيصية المخبرية',
-  //   description: 'مختبر مجهز بأحدث التقنيات لإجراء كافة الفحوصات الطبية الدقيقة لدعم خطط العلاج والوقاية.'
-  // }
-];
-
+    {
+      icon: 'hospital',
+      title: 'العيادات الخارجية التخصصية',
+      titleEn: 'Specialized Outpatient Clinics',
+      description: 'تضم طب الأسرة، الباطني، الأطفال، الأسنان، والجراحة العامة لتقديم رعاية طبية أولية متكاملة.'
+    },
+    {
+      icon: 'activity',
+      title: 'جراحة العظام والطب الرياضي',
+      titleEn: 'Orthopedics & Sports Medicine',
+      description: 'خدمات متخصصة في جراحة العظام، الطب الفيزيائي والتأهيل، وعلاج الإصابات الرياضية.'
+    },
+    {
+      icon: 'droplet',
+      title: 'العلاج المائي',
+      titleEn: 'Hydrotherapy',
+      description: 'تخفيف آلام المفاصل والظهر، تحسين الحركة، وتأهيل ما بعد الإصابات أو الجراحة باستخدام الماء.'
+    },
+    {
+      icon: 'thermometer-snow',
+      title: 'مختبر الثلج',
+      titleEn: 'Ice Lab',
+      description: 'علاج الجسم بالتبريد لتقليل الالتهابات، تورم العضلات، وتحسين الدورة الدموية والأداء البدني.'
+    },
+    {
+      icon: 'person-check',
+      title: 'خدمات المعالجة المتخصصة',
+      titleEn: 'Specialized Therapy Services',
+      description: 'تشمل العلاج الوظيفي، العلاج الطبيعي، العلاج التنفسي، وعلاج النطق واللغة.'
+    },
+    {
+      icon: 'clipboard-plus',
+      title: 'الطب الصيني والبديل',
+      titleEn: 'Chinese & Alternative Medicine',
+      description: 'نقدم جلسات الوخز بالإبر الصينية والحجامة لعلاج الألم المزمن، التوتر، واضطرابات النوم.'
+    },
+    // {
+    //   icon: 'lightning-charge',
+    //   title: 'التقنيات العلاجية الحديثة',
+    //   titleEn: 'Advanced Therapeutic Technologies',
+    //   description: 'العلاج بالمغناطيسية لسلس البول، العلاج بالتيرا هيرتز، والعلاج بالتسريب الوريدي.'
+    // },
+    // {
+    //   icon: 'heart-pulse',
+    //   title: 'التغذية والحمية الغذائية',
+    //   titleEn: 'Nutrition & Dietetics',
+    //   description: 'استشارات تغذية متخصصة لتعزيز الصحة العامة ودعم الخطط العلاجية للمرضى.'
+    // },
+    // {
+    //   icon: 'activity',
+    //   title: 'تحليل طريقة المشي والتدريب',
+    //   titleEn: 'Gait Analysis & Training',
+    //   description: 'استخدام تقنيات عالية الدقة لتحليل الحركة وتصميم برامج تأهيلية متخصصة لتحسين التوازن والمشي.'
+    // }
+  ];
 }

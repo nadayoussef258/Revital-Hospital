@@ -23,7 +23,7 @@ export class ContactCardsComponent {
       title: 'عنواننا',
       details: [
         // { label: '', value: 'شارع الشيخ زايد' },
-        { label: '', value: 'العين، الإمارات العربية المتحدة' }
+        { label: '', value: 'الفوعة ، العين ، الإمارات العربية المتحدة' }
       ]
     },
     {

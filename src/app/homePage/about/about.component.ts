@@ -14,39 +14,33 @@ import { CommonModule } from '@angular/common';
             <div class="about-content">
               <p class="section-label">عن ريفيتال</p>
               <h2 class="section-title">
-                نلتزم بتقديم أفضل رعاية<br>
-                صحية لكم ولعائلاتكم
-              </h2>
+تلتزم مستشفى ريفيتال بتقديم<br> أعلى مستويات الجودة في الرعاية والعلاج والخدمات للمرضى</h2>
               <div class="title-underline"></div>
               
-            <p class="about-description">
-  مستشفى ريفيتال هي مؤسسة طبية رائدة في دولة الإمارات العربية المتحدة،
-  نلتزم بتقديم أعلى مستويات الرعاية الصحية باستخدام أحدث التقنيات الطبية
-  وأفضل الممارسات العالمية، مع التركيز على راحة المريض وتحقيق أفضل النتائج
-  الصحية الممكنة.
+            <p class="about-description">هدفنا هو تعزيز تعافي المرضى وتحسين نتائجهم من خلال تقديم رعاية شاملة ومتخصصة لكل مريض، وذلك عبر فريق من ذوي الخبرة.
 </p>
 
               <div class="row mt-4">
                 <div class="col-md-6">
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
-                    <span>برامج وقائية وعلاجية متكاملة</span>
+                    <span>تشمل برامجنا المتكاملة الرعاية عالية الجودة</span>
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
-                    <span>خدمات المرضى الداخليين والخارجيين</span>
+                    <span> المختبر</span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
-                    <span>   خدمات طبية متكاملة</span>
+                    <span>خدمات متخصصة من خلال عياداتنا الخارجية</span>
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
                     <!-- Not Found in file -->
 
-                    <span>قسم طوارئ متاح على مدار الساعة</span>
+                    <span>رعاية المرضى على مدار 24 ساعة</span>
                   </div>
                 </div>
               </div>
@@ -81,10 +75,7 @@ import { CommonModule } from '@angular/common';
                 <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500" 
                      alt="مختبرات متقدمة" 
                      class="img-fluid">
-                <div class="image-badge">
-                  <i class="bi bi-award-fill"></i>
-                  <span>معتمد دولياً</span>
-                </div>
+               
               </div>
 
               <!-- Stats Cards -->
@@ -120,7 +111,7 @@ import { CommonModule } from '@angular/common';
                 <i class="bi bi-heart-pulse-fill"></i>
               </div>
               <h5>رعاية متميزة</h5>
-              <p>خدمات صحية عالية الجودة</p>
+              <p>خدمات صحية عالية الدقة</p>
             </div>
           </div>
           <div class="col-md-4">
@@ -147,15 +138,15 @@ import { CommonModule } from '@angular/common';
     .section-label {
       color: #2E7DB5;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 19px;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 10px;
     }
 
     .section-title {
-      color: #1A2332;
-      font-size: 44px;
+      color: #23334fff;
+      font-size: 38px;
       font-weight: 800;
       line-height: 1.4;
       margin-bottom: 20px;

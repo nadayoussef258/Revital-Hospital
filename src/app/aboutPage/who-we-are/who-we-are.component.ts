@@ -21,8 +21,8 @@ export class WhoWeAreComponent implements OnInit {
   ];
 
   stats = [
-    { number: '30+', label: 'عيادة متخصصة', icon: 'bi-hospital' },
-    { number: '27K+', label: 'مريض راضٍ', icon: 'bi-emoji-smile' },
-    { number: '60+', label: 'طبيب محترف', icon: 'bi-person-badge' }
+    { number: '50+', label: 'عيادة متخصصة', icon: 'bi-hospital' },
+    { number: '15K+', label: 'مريض راضٍ', icon: 'bi-emoji-smile' },
+    { number: '25+', label: 'طبيب محترف', icon: 'bi-person-badge' }
   ];
 }

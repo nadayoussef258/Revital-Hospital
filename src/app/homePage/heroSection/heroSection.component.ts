@@ -27,13 +27,13 @@ export class HeroSectionComponent implements OnInit,OnDestroy  {
     {
       image: 'https://lh3.googleusercontent.com/p/AF1QipN2mV8uD_YbjBXc0fO766duE028q1yy4UBk3Yad=s1360-w1360-h1020-rw',
       title: 'مرحباً بكم في مستشفى ريفيتال',
-      subtitle: 'رعاية صحية بمعايير عالمية',
+      subtitle: '   لمسة من الرعاية التي تستحقها',
 description: 'يعمل فريقنا الطبي باحترافية عالية لتقديم رعاية صحية شاملة تضع المريض في المقام الأول',
  buttonText: 'احجز موعدك',
       buttonLink: '/contact'
     },
     {
-      image: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1920&q=80',
+      image: 'https://thumbs.dreamstime.com/b/double-exposure-smart-medical-doctor-working-operating-room-as-concept-43619820.jpg',
       title: 'رعاية صحية متكاملة',
       subtitle: 'أحدث التقنيات الطبية',
       description: 'نقدم خدمات طبية شاملة بأحدث التقنيات والأجهزة الطبية المتطورة لضمان أفضل رعاية صحية لك ولعائلتك',
@@ -49,7 +49,7 @@ description: 'يضم المستشفى فريقًا طبيًا مؤهلاً يع�
       buttonLink: '/#team'
     },
     {
-      image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&q=80',
+      image: 'https://lh3.googleusercontent.com/p/AF1QipMnagTkJP-ApeTigzrdBysm8S-A54kh7u7fZwuc=s1360-w1360-h1020-rw',
      title: 'رعاية طبية مستمرة',
 subtitle: 'جاهزون لخدمتكم',
 description: 'نحرص على توفير رعاية طبية موثوقة وسريعة وفق أعلى معايير الجودة والسلامة',

@@ -18,10 +18,6 @@ import { CommonModule } from '@angular/common';
                   <img src="logo.png" alt="مستشفى ريفيتال" class="logo-img">
                   <!-- <h3>مستشفى ريفيتال</h3> -->
                 </div>
-                <p class="footer-description">
-                  نحول الأعمال الصحية بحلول مبتكرة منذ 2010. 
-                  نساعد المستشفيات على التوسع بكفاءة واستدامة في جميع أنحاء الإمارات العربية المتحدة.
-                </p>
                 <div class="social-links">
                   <a href="https://www.facebook.com/revital.ae/" class="social-icon" aria-label="فيسبوك">
                     <i class="bi bi-facebook"></i>
@@ -56,10 +52,10 @@ import { CommonModule } from '@angular/common';
               <div class="footer-section">
                 <h4 class="footer-title">خدماتنا الطبية</h4>
                 <ul class="footer-links">
-                  <li><a href="#services">أمراض القلب</a></li>
-                  <li><a href="#services">طب الأعصاب</a></li>
-                  <li><a href="#services">الطوارئ 24/7</a></li>
-                  <li><a href="#services">الجراحة</a></li>
+                  <li><a href="#services"> العيادات الخارجية</a></li>
+                  <li><a href="#services"> التغذية </a></li>
+                  <li><a href="#services"> الطب الصيني و البديل</a></li>
+                  <li><a href="#services">العلاج المائي</a></li>
                 </ul>
               </div>
             </div>
@@ -143,8 +139,8 @@ import { CommonModule } from '@angular/common';
     }
 
     .logo-img {
-      width: 150px;
-      height: 150px;
+      width: 250px;
+      height: 250px;
       object-fit: contain;
     }
 

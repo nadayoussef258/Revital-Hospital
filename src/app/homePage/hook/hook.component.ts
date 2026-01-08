@@ -13,13 +13,13 @@ import { CommonModule } from '@angular/common';
         <div class="row align-items-center">
           <div class="col-lg-7">
             <div class="hook-content">
-              <h2 class="hook-title animate-fade-in">
-                خصم 30% على جميع خدماتنا الطبية هذا الأسبوع
+                <h2 class="hook-title animate-fade-in">
+                صحتك تستحق الأفضل.. ونحن هنا لأجلك
               </h2>
               <p class="hook-description animate-fade-in-delay">
-                استفد من عرضنا الخاص! احصل على خصم 30% على جميع الخدمات الطبية 
-                هذا الأسبوع. اجعل صحتك أولوية مع رعاية طبية متميزة بأسعار لا تُقاوم.
-                في مستشفى ريفيتال، نلتزم بتقديم أفضل الخدمات الصحية لكم ولعائلاتكم.
+                في مستشفى ريفيتال، نؤمن بأن كل مريض يستحق رعاية استثنائية.
+                فريقنا الطبي المتخصص، أحدث التقنيات، وبيئة علاجية مريحة - كل ذلك
+                لنمنحك تجربة طبية تفوق توقعاتك. ثقتكم هي أولويتنا، وراحتكم هي هدفنا.
               </p>
               <button class="btn-book animate-fade-in-delay-2">
                 احجز الآن
@@ -31,8 +31,8 @@ import { CommonModule } from '@angular/common';
             <div class="hook-badge">
               <div class="badge-circle">
                 <div class="badge-inner">
-                  <span class="discount-text">30%</span>
-                  <span class="off-text">خصم</span>
+                  <span class="discount-text">24/7 </span>
+                  <span class="off-text">خدمة طبية</span>
                 </div>
               </div>
             </div>
