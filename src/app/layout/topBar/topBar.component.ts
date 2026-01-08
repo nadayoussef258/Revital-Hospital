@@ -17,10 +17,9 @@ export class TopBarComponent  {
   };
 
   socialLinks = [
-    { icon: 'facebook', url: 'https://facebook.com', label: 'Facebook' },
-    { icon: 'instagram', url: 'https://instagram.com', label: 'Instagram' },
-    { icon: 'linkedin', url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: 'twitter', url: 'https://twitter.com', label: 'Twitter' }
+    { icon: 'facebook', url: 'https://www.facebook.com/revital.ae/', label: 'Facebook' },
+    { icon: 'instagram', url: 'https://www.instagram.com/revital.hospital/', label: 'Instagram' },
+    { icon: 'linkedin', url: 'https://www.linkedin.com/company/revital-rehabilitation-hospital/', label: 'LinkedIn' },
   ];
 
 }

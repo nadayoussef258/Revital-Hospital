@@ -23,16 +23,14 @@ import { CommonModule } from '@angular/common';
                   نساعد المستشفيات على التوسع بكفاءة واستدامة في جميع أنحاء الإمارات العربية المتحدة.
                 </p>
                 <div class="social-links">
-                  <a href="#" class="social-icon" aria-label="فيسبوك">
+                  <a href="https://www.facebook.com/revital.ae/" class="social-icon" aria-label="فيسبوك">
                     <i class="bi bi-facebook"></i>
                   </a>
-                  <a href="#" class="social-icon" aria-label="تويتر">
-                    <i class="bi bi-twitter"></i>
-                  </a>
-                  <a href="#" class="social-icon" aria-label="لينكد إن">
+                
+                  <a href="https://www.linkedin.com/company/revital-rehabilitation-hospital/" class="social-icon" aria-label="لينكد إن">
                     <i class="bi bi-linkedin"></i>
                   </a>
-                  <a href="#" class="social-icon" aria-label="إنستغرام">
+                  <a href="https://www.instagram.com/revital.hospital/" class="social-icon" aria-label="إنستغرام">
                     <i class="bi bi-instagram"></i>
                   </a>
                 </div>
