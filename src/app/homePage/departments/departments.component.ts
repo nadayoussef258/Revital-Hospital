@@ -1,6 +1,7 @@
 // departments.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface Department {
   icon: string;
@@ -43,6 +44,14 @@ interface Department {
               </ul>
             </div>
           </div>
+        </div>
+         <!-- More Services Button -->
+        <div class="text-center mt-5 pt-4">
+          <button class="btn-more-services" (click)="navigateToServices()">
+            <span class="btn-text">استكشف جميع أقسامنا</span>
+            <i class="bi bi-arrow-left btn-icon"></i>
+            <div class="btn-shine"></div>
+          </button>
         </div>
       </div>
     </section>
@@ -175,8 +184,100 @@ interface Department {
       line-height: 1.5;
       font-weight: 500;
     }
+    /* More Services Button */
+    .btn-more-services {
+      background: linear-gradient(135deg, #2E7DB5 0%, #68A8D8 100%);
+      color: white;
+      border: none;
+      padding: 18px 50px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(46, 125, 181, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 1;
+    }
+
+    .btn-more-services::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #68A8D8 0%, #A8D0ED 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn-more-services:hover::before {
+      opacity: 1;
+    }
+
+    .btn-more-services:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(46, 125, 181, 0.4);
+    }
+
+    .btn-more-services:active {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .btn-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-icon {
+      font-size: 20px;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-more-services:hover .btn-icon {
+      transform: translateX(-8px);
+      animation: arrowBounce 0.6s ease-in-out infinite;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateX(-8px); }
+      50% { transform: translateX(-14px); }
+    }
+
+    .btn-shine {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.6s ease;
+    }
+
+    .btn-more-services:hover .btn-shine {
+      left: 100%;
+    }
+
 
     @media (max-width: 768px) {
+        .btn-more-services {
+        padding: 16px 40px;
+        font-size: 16px;
+      }
+
+      .btn-icon {
+        font-size: 18px;
+      }
       .departments-section {
         padding: 60px 0;
       }
@@ -201,35 +302,43 @@ interface Department {
   `]
 })
 export class DepartmentsComponent {
+    constructor(private router: Router) {}
+
+   navigateToServices(): void {
+    this.router.navigate(['/services']);
+  }
  departments: Department[] = [
-  {
-    icon: 'activity',
-    title: 'قسم التأهيل الطبي',
-    description: 'يقدّم برامج إعادة التأهيل المتقدمة لتعافي المرضى بعد الحالات الحادة والطويلة بفعالية وأمان.',
+   {
+    icon: 'heart-pulse-fill',
+    title: 'الطب الطبيعي والتأهيل',
+    description: 'برامج تأهيلية متخصصة لاستعادة الوظائف وتحسين جودة الحياة من خلال علاج متكامل للسكتات الدماغية وإصابات الدماغ والآلام المزمنة.',
     features: [
-      'خدمات إعادة التأهيل المتكاملة',
-      'علاج طبيعي وتمارين متخصّصة',
-      'خطط علاج شخصية'
+      'تأهيل السكتات الدماغية وإصابات الدماغ',
+      'إدارة الألم المزمن والحاد',
+      'تدريب مهارات العناية الذاتية',
+      'الدعم النفسي والأسري'
     ]
   },
   {
-    icon: 'journal-medical',
-    title: 'العيادات الخارجية المتعددة',
-    description: 'عيادات تخصصية متعددة تقدم خدمات تشخيصية وعلاجية حسب حاجة المريض بالتنسيق مع فريق طبي محترف.',
+    icon: 'bandaid-fill',
+    title: 'جراحة العظام والطب الرياضي',
+    description: 'رعاية متكاملة للجهاز العضلي الهيكلي تشمل جراحة العظام، الطب الرياضي، وإعادة التأهيل مع فريق طبي مدرب على أعلى مستوى.',
     features: [
-      'استشارات طبية متنوعة',
-      'خدمات تشخيصية متقدمة',
-      'رعاية متابعة مستمرة'
+      'جراحة العظام والكسور',
+      'علاج الإصابات الرياضية',
+      'الطب التجديدي وعيادة الألم',
+      'خدمة الرأي الطبي الثاني'
     ]
   },
   {
-    icon: 'clipboard-data',
-    title: 'الخدمات التشخيصية',
-    description: 'توفير خدمات التصوير الطبي والمختبرات الدقيقة لدعم التشخيص وخطط العلاج بشكل سريع ودقيق.',
+    icon: 'lightning-charge-fill',
+    title: 'العلاجات المتقدمة',
+    description: 'تقنيات علاجية حديثة تشمل العلاج المائي، التدريب الروبوتي، التبريد الكامل للجسم، والإبر الجافة لتحقيق أفضل النتائج العلاجية.',
     features: [
-      'فحوصات مخبرية متقدمة',
-      'تصوير شعاعي رقمي',
-      'تقارير سريعة'
+      'العلاج المائي بأحدث التقنيات',
+      'التدريب الحركي الروبوتي',
+      'العلاج بالتبريد الكامل للجسم',
+      'العلاج بالإبر الجافة'
     ]
   },
   // {

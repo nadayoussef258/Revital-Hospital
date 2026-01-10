@@ -27,7 +27,7 @@ isMenuOpen = false;
     { label: 'من نحن', route: '/about', active: false },
     { 
       label: 'الخدمات', 
-      route: '/#services', 
+      route: '/services', 
       active: false,
 
     },

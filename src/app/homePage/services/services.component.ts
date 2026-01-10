@@ -1,6 +1,7 @@
 // services.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface Service {
   icon: string;
@@ -35,6 +36,14 @@ interface Service {
               <p class="service-description">{{ service.description }}</p>
             </div>
           </div>
+        </div>
+        <!-- More Services Button -->
+        <div class="text-center mt-5 pt-4">
+          <button class="btn-more-services" (click)="navigateToServices()">
+            <span class="btn-text">استكشف جميع خدماتنا</span>
+            <i class="bi bi-arrow-left btn-icon"></i>
+            <div class="btn-shine"></div>
+          </button>
         </div>
       </div>
     </section>
@@ -208,7 +217,6 @@ interface Service {
       color: #336286ff;
       font-size: 18px;
       font-weight: 800;
-      // text-transform: uppercase;
       letter-spacing: 1.5px;
       margin-bottom: 18px;
       opacity: 0.85;
@@ -221,6 +229,90 @@ interface Service {
       line-height: 1.9;
       margin-bottom: 0;
       font-weight: 500;
+    }
+
+    /* More Services Button */
+    .btn-more-services {
+      background: linear-gradient(135deg, #2E7DB5 0%, #68A8D8 100%);
+      color: white;
+      border: none;
+      padding: 18px 50px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(46, 125, 181, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 1;
+    }
+
+    .btn-more-services::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #68A8D8 0%, #A8D0ED 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn-more-services:hover::before {
+      opacity: 1;
+    }
+
+    .btn-more-services:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(46, 125, 181, 0.4);
+    }
+
+    .btn-more-services:active {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .btn-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-icon {
+      font-size: 20px;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-more-services:hover .btn-icon {
+      transform: translateX(-8px);
+      animation: arrowBounce 0.6s ease-in-out infinite;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateX(-8px); }
+      50% { transform: translateX(-14px); }
+    }
+
+    .btn-shine {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.6s ease;
+    }
+
+    .btn-more-services:hover .btn-shine {
+      left: 100%;
     }
 
     @media (max-width: 768px) {
@@ -256,10 +348,24 @@ interface Service {
       .service-description {
         font-size: 15px;
       }
+
+      .btn-more-services {
+        padding: 16px 40px;
+        font-size: 16px;
+      }
+
+      .btn-icon {
+        font-size: 18px;
+      }
     }
   `]
 })
 export class ServicesComponent {
+  constructor(private router: Router) {}
+
+   navigateToServices(): void {
+    this.router.navigate(['/services']);
+  }
   services: Service[] = [
     {
       icon: 'hospital',

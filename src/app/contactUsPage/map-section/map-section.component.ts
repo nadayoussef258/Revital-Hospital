@@ -1,7 +1,7 @@
 // map-section.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SanitizeUrlPipe } from "../../Pipes/sanitize-url.pipe";
+import { SanitizeUrlPipe } from "../../core/Pipes/sanitize-url.pipe";
 
 @Component({
   selector: 'app-map-section',

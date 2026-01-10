@@ -1,0 +1,166 @@
+<!-- department-detail.component.html -->
+
+<div *ngIf="department">
+  <!-- Hero Section -->
+  <section class="department-hero position-relative overflow-hidden">
+    <div class="hero-image" [style.background-image]="'url(' + department.heroImage + ')'"></div>
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center min-vh-60">
+        <div class="col-lg-8">
+         
+          <h1 class="display-4 fw-bold text-white mb-4">{{department.nameAr}}</h1>
+          <p class="lead text-white mb-0 fs-4 mb-4">{{department.description}}</p>
+            <!-- Back Button -->
+          <button class="btn-back " (click)="goBack()">
+            <i class="bi bi-arrow-right me-2"></i>
+            العودة للخدمات
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialties Section (if exists) -->
+  <section class="py-5 bg-light" *ngIf="department.specialties && department.specialties.length > 0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center mb-4 section-title">تخصصاتنا</h3>
+          <div class="row g-3">
+            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let specialty of department.specialties">
+              <div class="specialty-badge">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                {{specialty}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-content py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-title mb-4">الخدمات المتاحة</h2>
+          <p class="text-muted fs-5">
+            نقدم مجموعة شاملة من الخدمات الطبية المتخصصة بأعلى معايير الجودة والكفاءة
+          </p>
+        </div>
+      </div>
+
+      <!-- Services Grid with Images -->
+      <div class="row g-4" *ngFor="let service of department.services; let i = index">
+        <!-- Alternating layout -->
+        <ng-container *ngIf="i % 2 === 0">
+          <!-- Image on Right, Content on Left -->
+          <div class="col-lg-6 order-lg-2">
+            <div class="service-image-wrapper">
+              <img [src]="getServiceImage(i)" 
+                   [alt]="service.title" 
+                   class="service-image">
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="service-content h-100 d-flex flex-column justify-content-center">
+              <div class="service-number">{{(i + 1).toString().padStart(2, '0')}}</div>
+              <h3 class="service-title mb-3">{{service.title}}</h3>
+              <p class="text-muted mb-4">{{service.description}}</p>
+              <ul class="service-list" *ngIf="service.items">
+                <li *ngFor="let item of service.items">
+                  <i class="bi bi-check-lg"></i>
+                  <span>{{item}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="i % 2 !== 0">
+          <!-- Image on Left, Content on Right -->
+          <div class="col-lg-6">
+            <div class="service-image-wrapper">
+              <img [src]="getServiceImage(i)" 
+                   [alt]="service.title" 
+                   class="service-image">
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-content h-100 d-flex flex-column justify-content-center">
+              <div class="service-number">{{(i + 1).toString().padStart(2, '0')}}</div>
+              <h3 class="service-title mb-3">{{service.title}}</h3>
+              <p class="text-muted mb-4">{{service.description}}</p>
+              <ul class="service-list" *ngIf="service.items">
+                <li *ngFor="let item of service.items">
+                  <i class="bi bi-check-lg"></i>
+                  <span>{{item}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- Divider -->
+        <div class="col-12" *ngIf="i < department.services.length - 1">
+          <hr class="service-divider">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="contact-cta py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="cta-card text-center">
+            <i class="bi bi-calendar-check cta-icon mb-4"></i>
+            <h3 class="mb-3">هل أنت مستعد للبدء؟</h3>
+            <p class="text-muted mb-4 fs-5">
+              احجز موعدك الآن واستمتع بخدماتنا الطبية المتميزة
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="tel:+97137144444" class="btn btn-primary btn-lg px-5">
+                <i class="bi bi-telephone-fill me-2"></i>
+                اتصل بنا
+              </a>
+              <!-- <a href="mailto:info@staging.revitalrehab.ae" class="btn btn-outline-primary btn-lg px-5">
+                <i class="bi bi-envelope-fill me-2"></i>
+                راسلنا
+              </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Departments -->
+  <section class="related-departments py-5 bg-light">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-12 text-center">
+          <h3 class="section-title">أقسام أخرى قد تهمك</h3>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4" *ngFor="let dept of relatedDepartments">
+          <div class="related-card h-100" (click)="navigateToDepartment(dept.id)">
+            <div class="card-body text-center p-4">
+              <div class="icon-wrapper mb-3">
+                <i class="bi {{dept.icon}}"></i>
+              </div>
+              <h4 class="mb-3">{{dept.nameAr}}</h4>
+              <p class="text-muted small mb-0">{{dept.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

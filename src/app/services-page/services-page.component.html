@@ -1,0 +1,78 @@
+<!-- services-page.component.html -->
+
+<!-- Hero Section -->
+<section class="services-hero position-relative overflow-hidden">
+  <div class="hero-overlay"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-lg-8 mx-auto text-center text-white">
+        <h1 class="display-3 fw-bold mb-4 animate-fade-in" >خدماتنا الطبية</h1>
+        <p class="lead mb-4 fs-4 animate-fade-in-delay">
+          نقدم مجموعة شاملة من الخدمات الطبية المتخصصة بأعلى معايير الجودة
+        </p>
+        <div class="divider-line mx-auto"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="section-title mb-4">الرعاية الطبية المتكاملة</h2>
+        <p class="text-muted fs-5 mb-0">
+          في مستشفى ريفيتال، نوفر تشكيلة واسعة من التخصصات الطبية تحت سقف واحد. 
+          فريقنا الطبي المتميز مستعد لتقديم أفضل رعاية صحية لك ولعائلتك.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Departments Grid Section -->
+<section class="departments-section py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let dept of departments; let i = index">
+        <div class="department-card h-100" 
+             [style.animation-delay]="(i * 0.1) + 's'"
+             (click)="navigateToDepartment(dept.id)">
+          <div class="card-body text-center p-4">
+            <div class="icon-wrapper mb-4">
+              <i class="bi {{dept.icon}} department-icon"></i>
+            </div>
+            <h3 class="department-title mb-3">{{dept.nameAr}}</h3>
+            <p class="text-muted mb-4">{{dept.description}}</p>
+            <div class="mt-auto">
+              <a class="btn-explore">
+                <span>استكشف الخدمات</span>
+                <i class="bi bi-arrow-left ms-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="card-hover-effect"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 text-center text-lg-end mb-4 mb-lg-0">
+        <h3 class="mb-3 text-white">هل تحتاج إلى استشارة طبية؟</h3>
+        <p class="text-white-50 mb-0">فريقنا الطبي جاهز لخدمتك على مدار الساعة</p>
+      </div>
+      <div class="col-lg-4 text-center text-lg-start">
+        <a href="tel:+97137144444" class="btn btn-light btn-lg px-5 py-3">
+          <i class="bi bi-telephone-fill me-2"></i>
+          احجز موعدك الآن
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
