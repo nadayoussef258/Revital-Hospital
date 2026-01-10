@@ -1,11 +1,13 @@
 // footer.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DEPARTMENTS_DATA } from '../../core/models/services.model';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <footer class="footer">
       <div class="footer-main">
@@ -38,8 +40,8 @@ import { CommonModule } from '@angular/common';
               <div class="footer-section">
                 <h4 class="footer-title">روابط سريعة</h4>
                 <ul class="footer-links">
-                  <li><a href="#about">عن المستشفى</a></li>
-                  <li><a href="#services">خدماتنا</a></li>
+                  <li><a [routerLink]="'about'">عن المستشفى</a></li>
+                  <li><a [routerLink]="'services'">خدماتنا</a></li>
                   <li><a href="#departments">الأقسام الطبية</a></li>
                   <li><a href="#team">فريقنا الطبي</a></li>
             
@@ -47,18 +49,17 @@ import { CommonModule } from '@angular/common';
               </div>
             </div>
 
-            <!-- Our Services -->
-            <div class="col-lg-3 col-md-6">
-              <div class="footer-section">
-                <h4 class="footer-title">خدماتنا الطبية</h4>
-                <ul class="footer-links">
-                  <li><a href="#services"> العيادات الخارجية</a></li>
-                  <li><a href="#services"> التغذية </a></li>
-                  <li><a href="#services"> الطب الصيني و البديل</a></li>
-                  <li><a href="#services">العلاج المائي</a></li>
-                </ul>
-              </div>
-            </div>
+           <!-- Our Services -->
+<div class="col-lg-3 col-md-6">
+  <div class="footer-section">
+    <h4 class="footer-title">خدماتنا الطبية</h4>
+    <ul class="footer-links">
+      <li *ngFor="let dept of featuredDepartments">
+        <a [routerLink]="['/services', dept?.id]">{{ dept?.nameAr }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
 
             <!-- Contact Us -->
             <div class="col-lg-3 col-md-6">
@@ -69,14 +70,14 @@ import { CommonModule } from '@angular/common';
                     <i class="bi bi-geo-alt-fill"></i>
                     <div>
                       <strong>العنوان:</strong>
-                      <p>  شارع الطَّوَّاش، العين<br>الإمارات العربية المتحدة</p>
+                      <p>  الفوعة ، العين ، أبو ظبي<br>الإمارات العربية المتحدة</p>
                     </div>
                   </li>
                   <li class="contact-item">
                     <i class="bi bi-envelope-fill"></i>
                     <div>
                       <strong>البريد الإلكتروني:</strong>
-                      <p><a href="mailto:info@revitalrehab.ae">info@revitalrehab.ae</a></p>
+                      <p><a href="mailto:info@staging.revitalrehab.ae">info@staging.revitalrehab.ae</a></p>
                     </div>
                   </li>
                   <li class="contact-item">
@@ -415,4 +416,11 @@ import { CommonModule } from '@angular/common';
     .footer-section:nth-child(4) { animation-delay: 0.4s; }
   `]
 })
-export class FooterComponent {}
+export class FooterComponent {
+  featuredDepartments = [
+    DEPARTMENTS_DATA.find(d => d.id === 'dental'),          // طب الأسنان
+    DEPARTMENTS_DATA.find(d => d.id === 'family-medicine'), // طب الأسرة
+    DEPARTMENTS_DATA.find(d => d.id === 'pediatrics'),      // طب الأطفال
+    DEPARTMENTS_DATA.find(d => d.id === 'therapy-services') // العلاج التأهيلي
+  ].filter(Boolean);
+}
