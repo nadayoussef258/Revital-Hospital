@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
-                    <span> المختبر</span>
+                    <span>رعاية المرضى على مدار 24 ساعة</span>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -39,8 +39,7 @@ import { CommonModule } from '@angular/common';
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
                     <!-- Not Found in file -->
-
-                    <span>رعاية المرضى على مدار 24 ساعة</span>
+                    <span> خدمات المختبرات الطبية</span>
                   </div>
                 </div>
               </div>
