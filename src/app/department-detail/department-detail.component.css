@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-    background: linear-gradient(135deg, rgba(209, 212, 215, 0.197) 0%, rgba(3, 56, 99, 0.734) 50%, rgba(197, 203, 207, 0.75) 100%);
+  background: linear-gradient(135deg, rgba(209, 212, 215, 0.197) 0%, rgba(3, 56, 99, 0.734) 50%, rgba(197, 203, 207, 0.75) 100%);
 }
 
 .min-vh-60 {
@@ -253,44 +253,106 @@
 
 /* Related Departments */
 .related-card {
-  background: white;
+  background: #FFFFFF;
   border-radius: 16px;
-  border: 1px solid #E1E8ED;
+  border: 2px solid #E8F3F9;
   transition: all 0.3s ease;
   cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(46, 125, 181, 0.08);
 }
 
 .related-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(46, 125, 181, 0.15);
+  box-shadow: 0 12px 30px rgba(46, 125, 181, 0.15);
   border-color: #68A8D8;
 }
 
-.related-card .icon-wrapper {
-  width: 60px;
-  height: 60px;
+/* Unified styling for both icon and image */
+.related-card .icon-wrapper,
+.related-card .image-wrapper {
+  width: 90px;
+  height: 90px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #E8F3F9 0%, #A8D0ED 100%);
-  border-radius: 12px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(46, 125, 181, 0.15);
+    background: linear-gradient(135deg, #E8F3F9, #A8D0ED);
+
+  
+}
+
+/* Icon specific styles */
+.related-card .icon-wrapper {
+  background: linear-gradient(135deg, #E8F3F9, #A8D0ED);
+}
+
+.related-card .icon-wrapper i {
+  font-size: 42px;
+  color: #2E7DB5;
   transition: all 0.3s ease;
 }
 
 .related-card:hover .icon-wrapper {
-  background: linear-gradient(135deg, #2E7DB5 0%, #68A8D8 100%);
-  transform: scale(1.1);
-}
-
-.related-card .icon-wrapper i {
-  font-size: 1.8rem;
-  color: #2E7DB5;
-  transition: color 0.3s ease;
+  background: linear-gradient(135deg, #2E7DB5, #68A8D8);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(46, 125, 181, 0.25);
 }
 
 .related-card:hover .icon-wrapper i {
-  color: white;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+/* Image specific styles */
+.related-card .dept-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.related-card .image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2E7DB5, #68A8D8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.related-card:hover .image-wrapper {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(46, 125, 181, 0.25);
+}
+
+.related-card:hover .dept-image {
+  transform: scale(1.2);
+}
+
+.related-card:hover .image-overlay {
+  opacity: 0.3;
+}
+
+/* Related card title and description */
+.related-card h4 {
+  color: #1A2332;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.related-card:hover h4 {
+  color: #2E7DB5;
+}
+
+.related-card .text-muted {
+  color: #5A6C7D !important;
+  line-height: 1.6;
 }
 
 /* Responsive Design */
@@ -329,6 +391,20 @@
   .btn-lg {
     padding: 12px 30px;
     font-size: 1rem;
+  }
+  
+  .related-card .icon-wrapper,
+  .related-card .image-wrapper {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .related-card .icon-wrapper i {
+    font-size: 36px;
+  }
+  
+  .related-card h4 {
+    font-size: 1.1rem;
   }
 }
 

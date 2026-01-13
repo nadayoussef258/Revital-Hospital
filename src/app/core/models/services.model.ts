@@ -89,6 +89,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'pediatric-care',
         title: 'رعاية الأطفال والمراهقين',
+        image:'',
         description: 'عناية طبية متخصصة للأطفال',
         items: ['أمراض الطفولة', 'إصابات الأطفال', 'متابعة النمو']
       },
@@ -279,6 +280,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'family-support',
         title: 'دعم الأسرة',
+        image:'assets/family-support.jpeg',
         description: 'إشراك العائلة في رحلة التعافي',
         items: [
           'التدريب والتعليم للأسرة',
@@ -295,17 +297,19 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Pediatrics',
     icon: 'bi-balloon-heart',
     description: 'رعاية صحية متكاملة للأطفال من الولادة حتى المراهقة',
-    heroImage: 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1200',
+    heroImage: 'assets/childrenCover.jpg',
     services: [
       {
         id: 'preventive-care',
         title: 'الرعاية الوقائية',
+        image:'assets/child1.jpg',
         description: 'حماية صحة طفلك منذ البداية',
         items: ['التطعيمات الأساسية', 'التقييمات النمائية', 'الفحوصات الدورية']
       },
       {
         id: 'common-diseases',
         title: 'الأمراض الشائعة',
+        image:'assets/child2.jpg',
         description: 'علاج أمراض الطفولة',
         items: [
           'أمراض الجهاز التنفسي',
@@ -317,6 +321,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'growth-disorders',
         title: 'اضطرابات النمو والتطور',
+        image:'assets/child3.jpg',
         description: 'متابعة نمو الطفل',
         items: [
           'تأخر النمو',
@@ -333,11 +338,12 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Psychiatry',
     icon: 'bi-emoji-smile',
     description: 'رعاية نفسية شاملة في بيئة آمنة وداعمة',
-    heroImage: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200',
+    heroImage: 'assets/psychiatryCover.jpg',
     services: [
       {
         id: 'age-groups',
         title: 'خدماتنا حسب الفئة العمرية',
+        image:'assets/psychiatry1.jpg',
         description: 'رعاية نفسية متخصصة لكل مرحلة عمرية',
         items: [
           'طب نفس الأطفال والمراهقين',
@@ -349,6 +355,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'psychological-services',
         title: 'الخدمات النفسية',
+        image:'assets/psychiatry2.jpg',
         description: 'علاج نفسي فردي وجماعي',
         items: [
           'علاج الاكتئاب والقلق',
@@ -361,6 +368,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'assessments',
         title: 'التقييمات النفسية',
+        image:'assets/psychiatry3.jpg',
         description: 'تقييمات شاملة ودقيقة',
         items: [
           'المقابلات السريرية',
@@ -383,24 +391,28 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'prenatal',
         title: 'العلاج الطبيعي قبل الحمل',
+        image: 'assets/Rehabilitation1.png',
         description: 'تحضير الجسم للحمل والولادة',
         items: ['تقوية عضلات الحوض', 'تحسين اللياقة البدنية', 'تمارين التنفس']
       },
       {
         id: 'postnatal',
         title: 'العلاج الطبيعي بعد الولادة',
+        image: 'assets/Rehabilitation2.png',
         description: 'استعادة اللياقة بعد الولادة',
         items: ['تأهيل عضلات البطن', 'علاج انفصال العضلات', 'استعادة القوة']
       },
       {
         id: 'pelvic',
         title: 'تأهيل عضلات الحوض',
+        image: 'assets/Rehabilitation3.png',
         description: 'تقوية وعلاج عضلات قاع الحوض',
         items: ['علاج السلس البولي', 'تقوية عضلات الحوض', 'تمارين كيجل المتقدمة']
       },
       {
         id: 'posture',
         title: 'تصحيح الوضعية',
+        image: 'assets/Rehabilitation4.png',
         description: 'علاج مشاكل الوضعية بعد الحمل',
         items: ['تصحيح وضعية العمود الفقري', 'تمارين تقوية الجذع', 'علاج آلام الظهر']
       }
@@ -412,35 +424,40 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Specialized Rehabilitation Programs',
     icon: 'bi-clipboard2-pulse',
     description: 'برامج تأهيلية متقدمة باستخدام أحدث التقنيات',
-    heroImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200',
+    heroImage: 'assets/ProgramsCover.png',
     services: [
       {
         id: 'lymphedema',
         title: 'برنامج علاج الوذمة اللمفية',
+        image: 'assets/Programs1.png',
         description: 'علاج متخصص للتورمات اللمفية',
         items: ['التصريف اللمفاوي اليدوي', 'العلاج بالضغط', 'التمارين العلاجية']
       },
       {
         id: 'incontinence',
         title: 'برنامج علاج سلس البول',
+        image: 'assets/Programs2.png',
         description: 'برنامج شامل لعلاج سلس البول',
         items: ['العلاج المغناطيسي', 'تمارين قاع الحوض', 'العلاج السلوكي']
       },
       {
         id: 'fall-prevention',
         title: 'برنامج الوقاية من السقوط',
+        image: 'assets/Programs3.png',
         description: 'تقليل مخاطر السقوط لدى كبار السن',
         items: ['تقييم التوازن', 'تمارين التقوية', 'تدريب المشي']
       },
       {
         id: 'spinal',
         title: 'تأهيل العمود الفقري',
+        image: 'assets/Programs4.png',
         description: 'برامج متخصصة لعلاج آلام الظهر',
         items: ['العلاج اليدوي', 'تمارين التثبيت', 'تصحيح الوضعية']
       },
       {
         id: 'cardiopulmonary',
         title: 'التأهيل القلبي الرئوي',
+        image: 'assets/Programs5.png',
         description: 'تحسين وظائف القلب والرئتين',
         items: ['تمارين القلب', 'التدريب التنفسي', 'برامج التحمل']
       }

@@ -143,19 +143,31 @@
           <h3 class="section-title">أقسام أخرى قد تهمك</h3>
         </div>
       </div>
-      <div class="row g-4">
-        <div class="col-lg-4" *ngFor="let dept of relatedDepartments">
-          <div class="related-card h-100" (click)="navigateToDepartment(dept.id)">
-            <div class="card-body text-center p-4">
-              <div class="icon-wrapper mb-3">
-                <i class="bi {{dept.icon}}"></i>
-              </div>
-              <h4 class="mb-3">{{dept.nameAr}}</h4>
-              <p class="text-muted small mb-0">{{dept.description}}</p>
-            </div>
-          </div>
+      <!-- Related Departments Section -->
+<div class="row g-4">
+  <div class="col-lg-4" *ngFor="let dept of relatedDepartments">
+    <div class="related-card h-100" (click)="navigateToDepartment(dept.id)">
+      <div class="card-body text-center p-4">
+        <!-- عرض الصورة إذا كانت موجودة -->
+        <div class="image-wrapper mb-3" *ngIf="dept.image">
+          <img [src]="dept.image" 
+               [alt]="dept.nameAr" 
+               class="dept-image"
+               loading="lazy">
+          <div class="image-overlay"></div>
         </div>
+        
+        <!-- عرض الأيقون إذا لم تكن الصورة موجودة -->
+        <div class="icon-wrapper mb-3" *ngIf="!dept.image">
+          <i class="bi {{dept.icon}}"></i>
+        </div>
+        
+        <h4 class="mb-3">{{dept.nameAr}}</h4>
+        <p class="text-muted small mb-0">{{dept.description}}</p>
       </div>
+    </div>
+  </div>
+</div>
     </div>
   </section>
 </div>

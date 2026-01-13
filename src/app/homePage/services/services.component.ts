@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 interface Service {
-  icon: string;
+  image?: string; // صورة اختيارية
+  icon?: string; // أيقون احتياطي
   title: string;
   titleEn: string;
   description: string;
@@ -28,9 +29,16 @@ interface Service {
         <div class="row g-4">
           <div class="col-lg-4 col-md-6" *ngFor="let service of services">
             <div class="service-card h-100">
-              <div class="service-icon">
-                <i [class]="'bi bi-' + service.icon"></i>
-              </div>
+              <!-- عرض الصورة إذا كانت موجودة -->
+<div class="service-image-wrapper" *ngIf="service.image">
+  <img [src]="service.image" ...>
+  <div class="image-overlay"></div>
+</div>
+
+<!-- عرض الأيقون إذا لم تكن الصورة موجودة -->
+<div class="service-icon" *ngIf="!service.image">
+  <i [class]="'bi bi-' + service.icon"></i>
+</div>
               <h3 class="service-title">{{ service.title }}</h3>
               <p class="service-title-en">{{ service.titleEn }}</p>
               <p class="service-description">{{ service.description }}</p>
@@ -154,7 +162,7 @@ interface Service {
       border-color: rgba(104, 168, 216, 0.3);
     }
 
-    .service-icon {
+    .service-icon, .service-image-wrapper {
       width: 100px;
       height: 100px;
       background: linear-gradient(135deg, #E8F3F9 0%, #F5F8FA 100%);
@@ -374,7 +382,7 @@ export class ServicesComponent {
       description: 'تضم طب الأسرة، الباطني، الأطفال، الأسنان، والجراحة العامة لتقديم رعاية طبية أولية متكاملة.'
     },
     {
-      icon: 'activity',
+      image: 'assets/bones-icon.png',
       title: 'جراحة العظام والطب الرياضي',
       titleEn: 'Orthopedics & Sports Medicine',
       description: 'خدمات متخصصة في جراحة العظام، الطب الفيزيائي والتأهيل، وعلاج الإصابات الرياضية.'
