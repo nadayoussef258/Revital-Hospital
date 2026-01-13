@@ -8,11 +8,10 @@
     <div class="container position-relative">
       <div class="row align-items-center min-vh-60">
         <div class="col-lg-8">
-         
           <h1 class="display-4 fw-bold text-white mb-4">{{department.nameAr}}</h1>
           <p class="lead text-white mb-0 fs-4 mb-4">{{department.description}}</p>
-            <!-- Back Button -->
-          <button class="btn-back " (click)="goBack()">
+          <!-- Back Button -->
+          <button class="btn-back" (click)="goBack()">
             <i class="bi bi-arrow-right me-2"></i>
             العودة للخدمات
           </button>
@@ -59,7 +58,7 @@
           <!-- Image on Right, Content on Left -->
           <div class="col-lg-6 order-lg-2">
             <div class="service-image-wrapper">
-              <img [src]="getServiceImage(i)" 
+              <img [src]="service.image" 
                    [alt]="service.title" 
                    class="service-image">
               <div class="image-overlay"></div>
@@ -84,7 +83,7 @@
           <!-- Image on Left, Content on Right -->
           <div class="col-lg-6">
             <div class="service-image-wrapper">
-              <img [src]="getServiceImage(i)" 
+              <img [src]="service.image" 
                    [alt]="service.title" 
                    class="service-image">
               <div class="image-overlay"></div>
@@ -129,10 +128,6 @@
                 <i class="bi bi-telephone-fill me-2"></i>
                 اتصل بنا
               </a>
-              <!-- <a href="mailto:info@staging.revitalrehab.ae" class="btn btn-outline-primary btn-lg px-5">
-                <i class="bi bi-envelope-fill me-2"></i>
-                راسلنا
-              </a> -->
             </div>
           </div>
         </div>

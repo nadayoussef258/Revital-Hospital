@@ -4,6 +4,7 @@ export interface Service {
   id: string;
   title: string;
   description: string;
+  image?: string;
   items?: string[];
   subSections?: SubSection[];
 }
@@ -17,7 +18,8 @@ export interface Department {
   id: string;
   nameAr: string;
   nameEn: string;
-  icon: string;
+    image?: string;
+  icon?: string;
   description: string;
   heroImage: string;
   services: Service[];
@@ -29,7 +31,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     id: 'dental',
     nameAr: 'طب الأسنان',
     nameEn: 'Dental Care',
-    icon: 'bi-heart-pulse',
+    image: 'assets/teeth-icon.png',
     description: 'نقدم رعاية أسنان متكاملة تجمع بين العلاج والتجميل بأحدث التقنيات',
     heroImage: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200',
     services: [
@@ -42,30 +44,35 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'preventive',
         title: 'العناية الوقائية',
+        image:'assets/teeth1.jpg',
         description: 'برامج وقائية للحفاظ على صحة أسنانك',
         items: ['تطبيق الفلورايد', 'سد الشقوق والحفر', 'إرشادات العناية بنظافة الفم', 'تنظيف وتلميع الأسنان']
       },
       {
         id: 'restorative',
         title: 'العلاجات الترميمية',
+        image:'assets/teeth2.jpg',
         description: 'استعادة وظيفة ومظهر الأسنان الطبيعي',
         items: ['الحشوات الترميمية', 'التيجان والجسور', 'بناء الدعامة (Post & Core)', 'علاج جذور الأسنان']
       },
       {
         id: 'cosmetic',
         title: 'طب الأسنان التجميلي',
+                image:'assets/teeth3.jpg',
         description: 'ابتسامة مشرقة وثقة أكبر',
         items: ['القشور التجميلية (Veneers)', 'إن سيرام', 'زركون', 'بورسلان']
       },
       {
         id: 'surgery',
         title: 'الجراحة والزراعة',
+                image:'assets/teeth4.jpg',
         description: 'حلول جراحية متقدمة',
         items: ['زراعة الأسنان الأساسية', 'خلع الأسنان (العادي والمعقد)']
       },
       {
         id: 'gum',
         title: 'علاج اللثة',
+                        image:'assets/teeth5.jpg',
         description: 'عناية متخصصة بصحة اللثة',
         items: ['علاج أمراض اللثة', 'تنظيف اللثة المتخصص']
       }
@@ -75,7 +82,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     id: 'family-medicine',
     nameAr: 'طب الأسرة',
     nameEn: 'Family Medicine',
-    icon: 'bi-people',
+    image: 'assets/family-icon.png',
     description: 'رعاية صحية شاملة لجميع أفراد الأسرة من جميع الأعمار',
     heroImage: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200',
     services: [
@@ -88,30 +95,35 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'adult-care',
         title: 'رعاية البالغين',
+        image:'assets/adults-care.jpg',
         description: 'خدمات طبية شاملة للبالغين',
         items: ['الأمراض الحادة والمزمنة', 'الإصابات', 'المتابعة الدورية']
       },
       {
         id: 'elderly-care',
         title: 'رعاية كبار السن',
+        image:'assets/high-edge-care.jpg',
         description: 'عناية خاصة بالمسنين',
         items: ['الأمراض المزمنة', 'متابعة الحالات المتعددة']
       },
       {
         id: 'emergency',
         title: 'الحالات الطارئة',
+        image:'assets/emergency-cases.jpg',
         description: 'تعامل سريع مع الحالات العاجلة',
         items: ['معالجة الحالات الطارئة', 'إدارة التسمم الحاد', 'علاج الحروق']
       },
       {
         id: 'preventive-family',
         title: 'الرعاية الوقائية',
+        image:'assets/doctor-patient.jpg',
         description: 'الوقاية خير من العلاج',
         items: ['التطعيمات واللقاحات', 'الفحوصات الشاملة', 'برامج تعزيز الصحة']
       },
       {
         id: 'other-services',
         title: 'خدمات إضافية',
+        image:'assets/additional-services.jpg',
         description: 'خدمات طبية متنوعة',
         items: ['الحقن الموضعي', 'تضميد الشدات العضلية', 'التحويل والتنسيق الطبي']
       }
@@ -128,36 +140,42 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'chronic-diseases',
         title: 'إدارة الأمراض المزمنة',
+        image:'assets/internal1.jpg',
         description: 'متابعة متخصصة للحالات المزمنة',
         items: ['السكري', 'ارتفاع ضغط الدم', 'اضطرابات الدهون', 'أمراض الغدد الصماء']
       },
       {
         id: 'digestive',
         title: 'أمراض الجهاز الهضمي',
+        image:'assets/internal2.jpg',
         description: 'تشخيص وعلاج اضطرابات الجهاز الهضمي',
         items: ['أمراض المعدة والأمعاء', 'اضطرابات الكبد', 'مشاكل الهضم']
       },
       {
         id: 'infectious',
         title: 'الأمراض المعدية والمناعية',
+        image:'assets/internal3.jpg',
         description: 'علاج العدوى والاضطرابات المناعية',
         items: ['الأمراض المعدية', 'الاضطرابات المناعية', 'لقاحات السفر']
       },
       {
         id: 'wellness',
         title: 'برامج الصحة والعافية',
+        image:'assets/internal4.jpg',
         description: 'فحوصات شاملة ورعاية وقائية',
         items: ['الفحوصات الشاملة', 'برامج العافية', 'الفحوصات الوقائية']
       },
       {
         id: 'nutrition-disorders',
         title: 'اضطرابات التغذية',
+        image:'assets/internal5.jpg',
         description: 'تشخيص وعلاج مشاكل التغذية',
         items: ['نقص التغذية', 'السمنة', 'اضطرابات الأيض']
       },
       {
         id: 'pre-surgery',
         title: 'العيادة التحضيرية',
+        image:'assets/internal6.jpg',
         description: 'تحضير المرضى قبل العمليات',
         items: ['التقييم الطبي قبل الجراحة', 'الفحوصات المطلوبة']
       }
@@ -167,7 +185,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     id: 'orthopedics',
     nameAr: 'جراحة العظام والطب الرياضي',
     nameEn: 'Orthopedics & Sports Medicine',
-    icon: 'bi-bandaid',
+    image: 'assets/bones-icon.png',
     description: 'رعاية متكاملة للجهاز العضلي الهيكلي والإصابات الرياضية',
     heroImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200',
     specialties: [
@@ -184,30 +202,35 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'surgery',
         title: 'الجراحة التخصصية',
+        image:'assets/orthopedics1.png',
         description: 'عمليات متقدمة بأحدث التقنيات',
         items: ['جراحة العظام والكسور', 'عظام الأطفال', 'جراحة القدم']
       },
       {
         id: 'sports',
         title: 'الطب الرياضي',
+        image:'assets/orthopedics2.png',
         description: 'علاج الإصابات الرياضية',
         items: ['تشخيص الإصابات الرياضية', 'برامج التأهيل الرياضي', 'العودة للملاعب']
       },
       {
         id: 'rehabilitation',
         title: 'التأهيل والعلاج',
+        image:'assets/orthopedics3.png',
         description: 'برامج تأهيل متكاملة',
         items: ['برامج تأهيل ما بعد العمليات', 'العلاج الطبيعي المتخصص']
       },
       {
         id: 'advanced',
         title: 'العلاجات المتقدمة',
+        image:'assets/orthopedics4.png',
         description: 'تقنيات علاجية حديثة',
         items: ['الطب التجديدي', 'إطالة الأطراف', 'عيادة الألم']
       },
       {
         id: 'consultation',
         title: 'الاستشارات الطبية',
+        image:'assets/orthopedics5.png',
         description: 'رأي طبي متخصص',
         items: ['خدمة الرأي الطبي الثاني', 'التقييم الشامل']
       }
@@ -217,13 +240,14 @@ export const DEPARTMENTS_DATA: Department[] = [
     id: 'pmr',
     nameAr: 'الطب الطبيعي والتأهيل',
     nameEn: 'Physical Medicine & Rehabilitation',
-    icon: 'bi-heart-pulse-fill',
+    image: 'assets/phyisical.png',
     description: 'استعادة الوظائف وتحسين جودة الحياة من خلال برامج تأهيلية متخصصة',
-    heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200',
+    heroImage: 'assets/physical-cover.jpeg',
     services: [
       {
         id: 'conditions',
         title: 'الحالات المعالجة',
+        image:'assets/physical-1.jpg',
         description: 'نطاق واسع من الحالات التأهيلية',
         items: [
           'إصابات الدماغ',
@@ -238,6 +262,8 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'services-pmr',
         title: 'خدماتنا التأهيلية',
+        image:'assets/physical-2.jpg',
+
         description: 'برامج شاملة لإعادة التأهيل',
         items: [
           'تدريب مهارات العناية الذاتية',
@@ -350,7 +376,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     id: 'prenatal-postnatal',
     nameAr: 'تأهيل ما قبل وبعد الولادة',
     nameEn: 'Prenatal & Postnatal Rehabilitation',
-    icon: 'bi-person-heart',
+    image: 'assets/Rehabilitation-icon.png',
     description: 'برامج تأهيلية متخصصة للأمهات قبل وبعد الولادة',
     heroImage: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1200',
     services: [
@@ -470,7 +496,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     id: 'therapy-services',
     nameAr: 'خدمات العلاج التأهيلي',
     nameEn: 'Therapy Services',
-    icon: 'bi-heart-pulse',
+    image: 'assets/therapy-icoon.png',
     description: 'فريق متكامل من المعالجين المتخصصين',
     heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200',
     services: [
@@ -528,7 +554,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     id: 'nutrition',
     nameAr: 'خدمات التغذية العلاجية',
     nameEn: 'Nutrition Services',
-    icon: 'bi-heart-pulse-fill',
+    image: 'assets/nutrition-icon.png',
     description: 'برامج غذائية متخصصة لصحة أفضل',
     heroImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200',
     services: [

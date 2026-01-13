@@ -6,6 +6,7 @@ interface Doctor {
   name: string;
   specialty: string;
   gender: 'male' | 'female';
+  image: string; // إضافة حقل الصورة
 }
 
 @Component({
@@ -26,10 +27,12 @@ interface Doctor {
         <div class="row g-4">
           <div class="col-lg-4 col-md-6" *ngFor="let doctor of doctors">
             <div class="doctor-card">
-              <div class="doctor-icon-wrapper">
-                <div class="doctor-icon">
-                  <i [class]="doctor.gender === 'male' ? 'bi bi-person' : 'bi bi-person-standing-dress'"></i>
-                </div>
+              <div class="doctor-image-wrapper">
+                <img [src]="doctor.image" 
+                     [alt]="doctor.name" 
+                     class="doctor-image"
+                     loading="lazy">
+                <div class="image-overlay"></div>
               </div>
               
               <div class="doctor-info">
@@ -82,7 +85,7 @@ interface Doctor {
     .doctor-card {
       background: #FFFFFF;
       border-radius: 20px;
-      padding: 50px 30px 40px;
+      padding: 30px;
       text-align: center;
       box-shadow: 0 5px 20px rgba(46, 125, 181, 0.08);
       transition: all 0.3s ease;
@@ -100,51 +103,45 @@ interface Doctor {
       border-color: #A8D0ED;
     }
 
-    .doctor-icon-wrapper {
+    .doctor-image-wrapper {
       margin-bottom: 25px;
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .doctor-icon {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, #2E7DB5 0%, #68A8D8 100%);
+    .doctor-image {
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
+      object-fit: cover;
+      border: 5px solid #FFFFFF;
       box-shadow: 0 8px 25px rgba(46, 125, 181, 0.25);
       transition: all 0.4s ease;
       position: relative;
+      z-index: 2;
     }
 
-    .doctor-icon::before {
-      content: '';
+    .image-overlay {
       position: absolute;
       inset: -8px;
       border-radius: 50%;
       border: 2px solid rgba(46, 125, 181, 0.2);
       transition: all 0.4s ease;
+      z-index: 1;
     }
 
-    .doctor-card:hover .doctor-icon {
-      transform: scale(1.1);
+    .doctor-card:hover .doctor-image {
+      transform: scale(1.05);
       box-shadow: 0 12px 35px rgba(46, 125, 181, 0.35);
+      border-color: #A8D0ED;
     }
 
-    .doctor-card:hover .doctor-icon::before {
+    .doctor-card:hover .image-overlay {
       inset: -12px;
       border-color: rgba(46, 125, 181, 0.3);
-    }
-
-    .doctor-icon i {
-      font-size: 60px;
-      color: #FFFFFF;
-      transition: transform 0.3s ease;
-    }
-
-    .doctor-card:hover .doctor-icon i {
-      transform: scale(1.1);
     }
 
     .doctor-info {
@@ -177,16 +174,12 @@ interface Doctor {
       }
       
       .doctor-card {
-        padding: 40px 25px 35px;
+        padding: 25px;
       }
 
-      .doctor-icon {
-        width: 100px;
-        height: 100px;
-      }
-
-      .doctor-icon i {
-        font-size: 50px;
+      .doctor-image-wrapper {
+        width: 140px;
+        height: 140px;
       }
 
       .doctor-name {
@@ -204,32 +197,38 @@ export class TeamComponent {
     {
       name: 'د. إبراهيم حسن',
       specialty: 'أخصائي طب الأطفال',
-      gender: 'male'
+      gender: 'male',
+      image: 'assets/male-icon.png'
     },
     {
       name: 'د. عمر مهدي',
       specialty: 'أخصائي جراحة العظام والإصابات',
-      gender: 'male'
+      gender: 'male',
+      image: 'assets/male-icon.png'
     },
     {
       name: 'د. إيمان عمر عبدالله',
       specialty: 'أخصائي الطب الباطني',
-      gender: 'female'
+      gender: 'female',
+      image: 'assets/female-icon.png'
     },
     {
       name: 'د. إيهاب صادق',
       specialty: 'طبيب أسنان',
-      gender: 'male'
+      gender: 'male',
+      image: 'assets/male-icon.png'
     },
     {
       name: 'د. فاطمة خيري',
       specialty: 'طبيب عام',
-      gender: 'female'
+      gender: 'female',
+      image: 'assets/female-icon.png'
     },
     {
       name: 'د. محمود ياسين رحال',
       specialty: 'المدير العام',
-      gender: 'male'
+      gender: 'male',
+      image: 'assets/male-icon.png'
     }
   ];
 }

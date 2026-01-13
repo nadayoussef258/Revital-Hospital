@@ -6,7 +6,7 @@
   <div class="container position-relative">
     <div class="row align-items-center min-vh-50">
       <div class="col-lg-8 mx-auto text-center text-white">
-        <h1 class="display-3 fw-bold mb-4 animate-fade-in" >خدماتنا الطبية</h1>
+        <h1 class="display-3 fw-bold mb-4 animate-fade-in">خدماتنا الطبية</h1>
         <p class="lead mb-4 fs-4 animate-fade-in-delay">
           نقدم مجموعة شاملة من الخدمات الطبية المتخصصة بأعلى معايير الجودة
         </p>
@@ -39,7 +39,15 @@
              [style.animation-delay]="(i * 0.1) + 's'"
              (click)="navigateToDepartment(dept.id)">
           <div class="card-body text-center p-4">
-            <div class="icon-wrapper mb-4">
+            <!-- عرض الصورة إذا كانت موجودة، وإلا عرض الأيقون -->
+            <div class="image-wrapper mb-4" *ngIf="dept.image">
+              <img [src]="dept.image" 
+                   [alt]="dept.nameAr" 
+                   class="department-image"
+                   loading="lazy">
+              <div class="image-overlay-effect"></div>
+            </div>
+            <div class="icon-wrapper mb-4" *ngIf="!dept.image">
               <i class="bi {{dept.icon}} department-icon"></i>
             </div>
             <h3 class="department-title mb-3">{{dept.nameAr}}</h3>
