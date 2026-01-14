@@ -1,5 +1,5 @@
 // about.component.ts
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -125,6 +125,25 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
     </section>
+    <!-- Full Width Video Section -->
+<section class="about-video-section" id="about-video">
+  <video
+    #aboutVideo
+    class="about-video"
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="assets/INTRO.mp4" type="video/mp4" />
+  </video>
+
+  <button class="mute-btn" (click)="toggleMute()">
+    <i class="bi" [ngClass]="isMuted ? 'bi-volume-mute-fill' : 'bi-volume-up-fill'"></i>
+  </button>
+</section>
+
+
   `,
   styles: [`
     .about-section {
@@ -483,6 +502,82 @@ import { CommonModule } from '@angular/common';
         display: none;
       }
     }
+    /* Full Width Video */
+.about-video-section {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.about-video {
+  width: 100%;
+  height: auto;          /* مهم */
+  max-height:115vh;     /* يمنع التمدد المبالغ فيه */
+  object-fit: cover;  /* بدل cover */
+  display: block;
+}
+.mute-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.mute-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: scale(1.1);
+}
+
+
   `]
 })
-export class AboutComponent {}
+export class AboutComponent implements AfterViewInit {
+
+  @ViewChild('aboutVideo') aboutVideo!: ElementRef<HTMLVideoElement>;
+  isMuted = true;
+
+  ngAfterViewInit(): void {
+    const video = this.aboutVideo.nativeElement;
+
+    video.muted = true;
+    video.load();
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(err => console.log('Autoplay blocked', err));
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(video);
+  }
+
+  toggleMute() {
+  const video = this.aboutVideo.nativeElement;
+
+  this.isMuted = !this.isMuted;
+  video.muted = this.isMuted;
+
+  if (!this.isMuted) {
+    video.volume = 1;
+    video.play(); // مهم جدًا
+  }
+}
+
+}
