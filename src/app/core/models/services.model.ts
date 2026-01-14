@@ -33,7 +33,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Dental Care',
     image: 'assets/teeth-icon.png',
     description: 'نقدم رعاية أسنان متكاملة تجمع بين العلاج والتجميل بأحدث التقنيات',
-    heroImage: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200',
+    heroImage: 'assets/dentalCover.jpeg',
     services: [
       {
         id: 'consultations',
@@ -469,41 +469,47 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Advanced Therapies',
     icon: 'bi-lightning-charge',
     description: 'تقنيات علاجية حديثة ومتطورة',
-    heroImage: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200',
+    heroImage: 'assets/advanced1.jpeg',
     services: [
       {
         id: 'hydrotherapy',
         title: 'العلاج المائي',
+        image: 'assets/advanced2.png',
         description: 'علاج بخصائص الماء الطبيعية',
         items: ['تقليل الضغط على المفاصل', 'تحسين التوازن', 'تقوية العضلات', 'تخفيف الألم']
       },
       {
         id: 'gait-training',
         title: 'تدريب وتحليل المشي',
+        image: 'assets/advanced3.png',
         description: 'تحسين القدرة على المشي',
         items: ['تحليل المشية', 'تمارين التوازن', 'تقوية العضلات', 'الوقاية من السقوط']
       },
       {
         id: 'dry-needling',
         title: 'العلاج بالإبر الجافة',
+        image: 'assets/advanced4.jpg',
         description: 'تخفيف الألم وتحسين الحركة',
         items: ['علاج آلام الظهر والرقبة', 'الصداع', 'التهاب الأوتار', 'آلام المفاصل']
       },
       {
         id: 'cryotherapy',
         title: 'العلاج بالتبريد الكامل',
+        image: 'assets/advanced5.jpg',
         description: 'علاج بدرجات حرارة منخفضة',
         items: ['تقليل الألم والالتهاب', 'تحسين الأداء الرياضي', 'تعزيز الأيض', 'تحسين النوم']
       },
       {
         id: 'smart-balance',
         title: 'برنامج التوازن الذكي',
+        image: 'assets/advanced6.jpg',
         description: 'تقييم وتحسين التوازن',
         items: ['تقييم مخاطر السقوط', 'برامج تدريب مخصصة', 'ألعاب تفاعلية', 'تقارير تقدم']
       },
       {
         id: 'robotic',
         title: 'التقييم الحركي الروبوتي',
+        image: 'assets/advanced7.jpeg',
         description: 'تدريب متقدم بالروبوتات',
         items: ['التدريب بالروبوتات', 'الواقع الافتراضي', 'التحفيز التفاعلي', 'تحسين الاستقلالية']
       }
@@ -573,11 +579,12 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Nutrition Services',
     image: 'assets/nutrition-icon.png',
     description: 'برامج غذائية متخصصة لصحة أفضل',
-    heroImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200',
+    heroImage: 'assets/nutritionCover.jpeg',
     services: [
       {
         id: 'clinical-nutrition',
         title: 'التغذية العلاجية',
+        image: 'assets/nutrition1.jpeg',
         description: 'خطط غذائية للحالات المرضية',
         items: [
           'إدارة السكري',
@@ -589,6 +596,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'weight-management',
         title: 'إدارة الوزن',
+        image: 'assets/nutrition2.jpg',
         description: 'برامج صحية لإنقاص أو زيادة الوزن',
         items: [
           'تقييم التغذية الشامل',
@@ -600,6 +608,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'wellness',
         title: 'برامج العافية',
+        image: 'assets/nutrition3.jpg',
         description: 'تحسين الصحة العامة',
         items: [
           'تعزيز المناعة',
@@ -611,6 +620,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'special-diets',
         title: 'الأنظمة الغذائية الخاصة',
+        image: 'assets/nutrition4.jpg',
         description: 'أنظمة غذائية متخصصة',
         items: [
           'الأنظمة النباتية',

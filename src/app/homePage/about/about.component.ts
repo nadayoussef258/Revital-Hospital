@@ -63,7 +63,7 @@ import { CommonModule } from '@angular/common';
 
               <!-- Main Large Image -->
               <div class="image-wrapper main-image">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800" 
+                <img [src]="'assets/lab.jpeg'" 
                      alt="فريق طبي محترف" 
                      class="img-fluid">
                 <div class="image-overlay"></div>
