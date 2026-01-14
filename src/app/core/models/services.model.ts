@@ -38,7 +38,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'consultations',
         title: 'الاستشارات والفحوصات',
-        image:'assets/dentalCover3.png',
+        image:'assets/dental2.png',
         description: 'فحوصات شاملة وتشخيص دقيق لصحة الفم والأسنان',
         items: ['الاستشارات الطبية', 'الأشعة الرقمية المتقدمة', 'التشخيص الشامل']
       },
