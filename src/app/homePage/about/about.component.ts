@@ -71,7 +71,7 @@ import { CommonModule } from '@angular/common';
 
               <!-- Bottom Right Small Image -->
               <div class="image-wrapper small-image-bottom">
-                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500" 
+                <img [src]="'assets/doc.png'" 
                      alt="مختبرات متقدمة" 
                      class="img-fluid">
                
