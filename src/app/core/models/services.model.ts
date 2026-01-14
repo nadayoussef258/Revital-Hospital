@@ -90,7 +90,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'pediatric-care',
         title: 'رعاية الأطفال والمراهقين',
-        image:'',
+        image:'assets/familyCare.png',
         description: 'عناية طبية متخصصة للأطفال',
         items: ['أمراض الطفولة', 'إصابات الأطفال', 'متابعة النمو']
       },
@@ -189,7 +189,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Orthopedics & Sports Medicine',
     image: 'assets/bones-icon.png',
     description: 'رعاية متكاملة للجهاز العضلي الهيكلي والإصابات الرياضية',
-    heroImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200',
+    heroImage: 'assets/orthopedicsCovera.png',
     specialties: [
       'جراحة العظام والكسور',
       'عظام الأطفال',
