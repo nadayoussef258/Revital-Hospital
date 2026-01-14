@@ -33,7 +33,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Dental Care',
     image: 'assets/teeth-icon.png',
     description: 'نقدم رعاية أسنان متكاملة تجمع بين العلاج والتجميل بأحدث التقنيات',
-    heroImage: 'assets/dentalCover.jpeg',
+    heroImage: 'assets/dentalCover4.png',
     services: [
       {
         id: 'consultations',
@@ -521,11 +521,12 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameEn: 'Therapy Services',
     image: 'assets/therapy-icoon.png',
     description: 'فريق متكامل من المعالجين المتخصصين',
-    heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200',
+    heroImage: 'assets/specializedCover.jpeg',
     services: [
       {
         id: 'physiotherapy',
         title: 'العلاج الطبيعي',
+         image: 'assets/specialized1.jpg',
         description: 'استعادة الحركة والوظائف الطبيعية',
         items: [
           'تأهيل الإصابات الرياضية',
@@ -538,6 +539,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'occupational',
         title: 'العلاج الوظيفي',
+         image: 'assets/specialized2.jpg',
         description: 'تحسين الأداء في الأنشطة اليومية',
         items: [
           'تمارين علاجية متخصصة',
@@ -550,6 +552,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'speech',
         title: 'علاج النطق واللغة',
+         image: 'assets/specialized3.jpg',
         description: 'تحسين التواصل والبلع',
         items: [
           'اضطرابات النطق واللغة',
@@ -562,6 +565,7 @@ export const DEPARTMENTS_DATA: Department[] = [
       {
         id: 'respiratory',
         title: 'العلاج التنفسي',
+         image: 'assets/specialized4.jpg',
         description: 'تحسين وظائف الجهاز التنفسي',
         items: [
           'اختبارات وظائف الرئة',

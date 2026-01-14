@@ -33,7 +33,7 @@ description: 'يعمل فريقنا الطبي باحترافية عالية ل�
       buttonLink: '/contact'
     },
     {
-      image: 'https://thumbs.dreamstime.com/b/double-exposure-smart-medical-doctor-working-operating-room-as-concept-43619820.jpg',
+      image: 'assets/cover1.png',
       title: 'رعاية صحية متكاملة',
       subtitle: 'أحدث التقنيات الطبية',
       description: 'نقدم خدمات طبية شاملة بأحدث التقنيات والأجهزة الطبية المتطورة لضمان أفضل رعاية صحية لك ولعائلتك',
