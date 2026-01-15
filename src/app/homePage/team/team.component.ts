@@ -231,7 +231,7 @@ export class TeamComponent {
       name: 'د. محمود ياسين رحال',
       specialty: 'المدير العام',
       gender: 'male',
-      image: 'https://durgacityhospital.com/wp-content/uploads/2024/10/Dummy-adobe-stck-img-1.jpg'
+      image: 'assets/rahal (1).jpg'
     }
   ];
 }
