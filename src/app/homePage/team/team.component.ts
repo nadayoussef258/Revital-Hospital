@@ -19,7 +19,7 @@ interface Doctor {
         <div class="text-center mb-5">
           <p class="section-label">أطباؤنا المتميزون</p>
           <h2 class="section-title">
-            فريق طبي محترف وودود لخدمتكم
+            فريق طبي محترف لخدمتكم
           </h2>
           <div class="title-underline mx-auto"></div>
         </div>
