@@ -6,7 +6,7 @@ interface Doctor {
   name: string;
   specialty: string;
   gender: 'male' | 'female';
-  image: string; // إضافة حقل الصورة
+  image: string;
 }
 
 @Component({
@@ -85,16 +85,13 @@ interface Doctor {
     .doctor-card {
       background: #FFFFFF;
       border-radius: 20px;
-      padding: 30px;
-      text-align: center;
+      overflow: hidden;
       box-shadow: 0 5px 20px rgba(46, 125, 181, 0.08);
       transition: all 0.3s ease;
       border: 1px solid #E8F3F9;
       height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
 
     .doctor-card:hover {
@@ -104,21 +101,16 @@ interface Doctor {
     }
 
     .doctor-image-wrapper {
-      margin-bottom: 25px;
       position: relative;
-      width: 160px;
-      height: 160px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
     }
 
     .doctor-image {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
-      border: 5px solid #FFFFFF;
-      box-shadow: 0 8px 25px rgba(46, 125, 181, 0.25);
       transition: all 0.4s ease;
       position: relative;
       z-index: 2;
@@ -126,30 +118,36 @@ interface Doctor {
 
     .image-overlay {
       position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      border: 2px solid rgba(46, 125, 181, 0.2);
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(46, 125, 181, 0.3) 0%,
+        rgba(46, 125, 181, 0.1) 50%,
+        transparent 100%
+      );
+      opacity: 0;
       transition: all 0.4s ease;
-      z-index: 1;
+      z-index: 3;
     }
 
     .doctor-card:hover .doctor-image {
-      transform: scale(1.05);
-      box-shadow: 0 12px 35px rgba(46, 125, 181, 0.35);
-      border-color: #A8D0ED;
+      transform: scale(1.08);
     }
 
     .doctor-card:hover .image-overlay {
-      inset: -12px;
-      border-color: rgba(46, 125, 181, 0.3);
+      opacity: 1;
     }
 
     .doctor-info {
-      width: 100%;
+      padding: 25px 30px;
+      text-align: center;
+      background: #FFFFFF;
+      position: relative;
+      z-index: 4;
     }
 
     .doctor-name {
-      color: #1A2332;
+      color: #2E7DB5;
       font-size: 24px;
       font-weight: 700;
       margin-bottom: 10px;
@@ -172,14 +170,13 @@ interface Doctor {
       .section-title {
         font-size: 32px;
       }
-      
-      .doctor-card {
-        padding: 25px;
-      }
 
       .doctor-image-wrapper {
-        width: 140px;
-        height: 140px;
+        height: 280px;
+      }
+      
+      .doctor-info {
+        padding: 20px 25px;
       }
 
       .doctor-name {
@@ -190,6 +187,12 @@ interface Doctor {
         font-size: 15px;
       }
     }
+
+    @media (max-width: 576px) {
+      .doctor-image-wrapper {
+        height: 320px;
+      }
+    }
   `]
 })
 export class TeamComponent {
@@ -198,37 +201,37 @@ export class TeamComponent {
       name: 'د. إبراهيم حسن',
       specialty: 'أخصائي طب الأطفال',
       gender: 'male',
-      image: 'assets/male-icon.png'
+      image: 'assets/ibrahim.jpg'
     },
     {
       name: 'د. عمر مهدي',
       specialty: 'أخصائي جراحة العظام والإصابات',
       gender: 'male',
-      image: 'assets/male-icon.png'
+      image: 'assets/omar.jpg'
     },
     {
       name: 'د. إيمان عمر عبدالله',
       specialty: 'أخصائي الطب الباطني',
       gender: 'female',
-      image: 'assets/female-icon.png'
+      image: 'assets/eman.jpg'
     },
     {
       name: 'د. إيهاب صادق',
       specialty: 'طبيب أسنان',
       gender: 'male',
-      image: 'assets/male-icon.png'
+      image: 'assets/Artboard 1.jpg' 
     },
     {
       name: 'د. فاطمة خيري',
       specialty: 'طبيب عام',
       gender: 'female',
-      image: 'assets/female-icon.png'
+      image: 'assets/fatma.jpg'
     },
     {
       name: 'د. محمود ياسين رحال',
       specialty: 'المدير العام',
       gender: 'male',
-      image: 'assets/male-icon.png'
+      image: 'https://durgacityhospital.com/wp-content/uploads/2024/10/Dummy-adobe-stck-img-1.jpg'
     }
   ];
 }

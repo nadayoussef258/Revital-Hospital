@@ -135,7 +135,7 @@ import { CommonModule } from '@angular/common';
     playsinline
     preload="auto"
   >
-    <source src="assets/INTRO.mp4" type="video/mp4" />
+    <source src="assets/INTRO2.mp4" type="video/mp4" />
   </video>
 
   <button class="mute-btn" (click)="toggleMute()">
