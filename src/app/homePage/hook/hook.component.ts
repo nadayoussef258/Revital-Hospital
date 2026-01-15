@@ -83,7 +83,7 @@ import { CommonModule } from '@angular/common';
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200');
+      background-image: url('/assets/revitalroom.jpeg');
       background-size: cover;
       background-position: center;
       opacity: 0.08;
