@@ -103,7 +103,7 @@ interface Doctor {
     .doctor-image-wrapper {
       position: relative;
       width: 100%;
-      height: 350px;
+      height: 375px;
       overflow: hidden;
     }
 
@@ -172,7 +172,7 @@ interface Doctor {
       }
 
       .doctor-image-wrapper {
-        height: 280px;
+        height: 320px;
       }
       
       .doctor-info {
@@ -190,7 +190,7 @@ interface Doctor {
 
     @media (max-width: 576px) {
       .doctor-image-wrapper {
-        height: 320px;
+        height: 470px;
       }
     }
   `]
@@ -231,7 +231,7 @@ export class TeamComponent {
       name: 'د. محمود ياسين رحال',
       specialty: 'المدير العام',
       gender: 'male',
-      image: 'assets/rahal (1).jpg'
+      image: 'assets/mahmoud.jpeg'
     }
   ];
 }
