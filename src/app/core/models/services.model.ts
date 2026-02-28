@@ -297,7 +297,7 @@ export const DEPARTMENTS_DATA: Department[] = [
     nameAr: 'طب الأطفال',
     nameEn: 'Pediatrics',
     icon: 'bi-balloon-heart',
-    description: 'رعاية صحية متكاملة للأطفال من الولادة حتى المراهقة',
+    description: 'رعاية صحية متكاملة للأطفال.',
     heroImage: 'assets/childrenCover.jpg',
     services: [
       {

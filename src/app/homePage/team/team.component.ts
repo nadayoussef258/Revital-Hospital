@@ -172,7 +172,7 @@ interface Doctor {
       }
 
       .doctor-image-wrapper {
-        height: 320px;
+        height: 470px;
       }
       
       .doctor-info {
@@ -219,7 +219,7 @@ export class TeamComponent {
       name: 'د. إيهاب صادق',
       specialty: 'طبيب أسنان',
       gender: 'male',
-      image: 'assets/Artboard 1.jpg' 
+      image: 'assets/ehab.jpg' 
     },
     {
       name: 'د. فاطمة خيري',
@@ -228,7 +228,7 @@ export class TeamComponent {
       image: 'assets/fatma.jpg'
     },
     {
-      name: 'د. محمود ياسين رحال',
+      name: ' محمود ياسين رحال',
       specialty: 'المدير العام',
       gender: 'male',
       image: 'assets/mahmoud.jpeg'
