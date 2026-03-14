@@ -148,11 +148,7 @@ interface Department {
       overflow: hidden;
     }
 
-    /* Icon specific styles */
-    // .department-icon {
-    //   background: linear-gradient(135deg, #2E7DB5, #68A8D8);
-    // }
-
+   
     .department-icon i {
       font-size: 50px;
       color: #68A8D8;
