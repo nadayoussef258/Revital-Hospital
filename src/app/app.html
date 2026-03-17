@@ -1,4 +1,4 @@
-<app-topBar></app-topBar>
-<app-navBar></app-navBar>
+<app-topBar *ngIf="showPublicLayout"></app-topBar>
+<app-navBar *ngIf="showPublicLayout"></app-navBar>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer *ngIf="showPublicLayout"></app-footer>

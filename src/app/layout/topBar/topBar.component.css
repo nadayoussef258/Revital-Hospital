@@ -1,7 +1,7 @@
 .top-bar {
   background: linear-gradient(135deg, #1a4d7a 0%, #2E7DB5 100%);
   color: #FFFFFF;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   box-shadow: 0 2px 4px rgba(46, 125, 181, 0.1);
 }
 
@@ -15,7 +15,7 @@
   color: #FFFFFF;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
 }
 
 .contact-item:hover {
@@ -59,7 +59,7 @@
 
 @media (max-width: 768px) {
   .top-bar {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   
   .contact-info {
@@ -73,7 +73,7 @@
   }
   
   .contact-item {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   
   .social-icon {

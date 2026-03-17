@@ -1,0 +1,338 @@
+/* src/app/components/admin/dashboard/dashboard.component.css - NEW VERSION */
+
+.dashboard-home {
+  padding: 0;
+}
+
+/* Welcome Section */
+.welcome-section {
+  margin-bottom: 3rem;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1A2332;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-title i {
+  color: #2E7DB5;
+}
+
+.welcome-subtitle {
+  font-size: 1.1rem;
+  color: #5A6C7D;
+  margin: 0;
+}
+
+/* Loading & Error */
+.loading-state {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+/* Stats Section */
+.stats-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1A2332;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #E1E8ED;
+}
+
+.section-title i {
+  color: #2E7DB5;
+}
+
+/* Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: #FFFFFF;
+  padding: 1.75rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 2px 12px rgba(46, 125, 181, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(46, 125, 181, 0.15);
+  border-color: #2E7DB5;
+}
+
+.stat-card:hover::before {
+  width: 100%;
+  opacity: 0.03;
+}
+
+.stat-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+/* Events Stats Colors */
+.stat-total .stat-icon {
+  background: linear-gradient(135deg, #2E7DB5, #68A8D8);
+  color: #FFFFFF;
+}
+
+.stat-total:hover::before {
+  background: linear-gradient(135deg, #2E7DB5, #68A8D8);
+}
+
+.stat-published .stat-icon {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+  color: #FFFFFF;
+}
+
+.stat-published:hover::before {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+}
+
+.stat-draft .stat-icon {
+  background: linear-gradient(135deg, #FF9800, #FFB74D);
+  color: #FFFFFF;
+}
+
+.stat-draft:hover::before {
+  background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+.stat-action .stat-icon {
+  background: linear-gradient(135deg, #9C27B0, #BA68C8);
+  color: #FFFFFF;
+}
+
+.stat-action:hover::before {
+  background: linear-gradient(135deg, #9C27B0, #BA68C8);
+}
+
+/* Messages Stats Colors */
+.stat-messages-total .stat-icon {
+  background: linear-gradient(135deg, #607D8B, #90A4AE);
+  color: #FFFFFF;
+}
+
+.stat-messages-total:hover::before {
+  background: linear-gradient(135deg, #607D8B, #90A4AE);
+}
+
+.stat-messages-new .stat-icon {
+  background: linear-gradient(135deg, #F44336, #EF5350);
+  color: #FFFFFF;
+}
+
+.stat-messages-new:hover::before {
+  background: linear-gradient(135deg, #F44336, #EF5350);
+}
+
+.stat-messages-read .stat-icon {
+  background: linear-gradient(135deg, #2196F3, #42A5F5);
+  color: #FFFFFF;
+}
+
+.stat-messages-read:hover::before {
+  background: linear-gradient(135deg, #2196F3, #42A5F5);
+}
+
+.stat-messages-replied .stat-icon {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+  color: #FFFFFF;
+}
+
+.stat-messages-replied:hover::before {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1A2332;
+  margin: 0 0 0.25rem 0;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #5A6C7D;
+  margin: 0;
+  font-weight: 500;
+}
+
+.card-arrow {
+  font-size: 1.2rem;
+  color: #CBD6E2;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .card-arrow {
+  color: #2E7DB5;
+  transform: translateX(-5px);
+}
+
+/* Notification Pulse */
+.notification-pulse {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 12px;
+  height: 12px;
+  background: #F44336;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Quick Actions Section */
+.quick-actions-section {
+  margin-top: 3rem;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.quick-action-card {
+  background: linear-gradient(135deg, #2E7DB5, #68A8D8);
+  color: #FFFFFF;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 125, 181, 0.2);
+}
+
+.quick-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(46, 125, 181, 0.3);
+  color: #FFFFFF;
+}
+
+.quick-action-card i {
+  font-size: 2.5rem;
+}
+
+.quick-action-card span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.quick-action-card:nth-child(2) {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+}
+
+.quick-action-card:nth-child(3) {
+  background: linear-gradient(135deg, #9C27B0, #BA68C8);
+}
+
+.quick-action-card:nth-child(4) {
+  background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.7rem;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.25rem;
+  }
+}

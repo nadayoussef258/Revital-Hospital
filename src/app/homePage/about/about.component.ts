@@ -10,7 +10,9 @@ import { CommonModule } from '@angular/common';
     <section class="about-section py-5" id="about">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 order-lg-2">
+
+          <!-- النص على اليمين (col-lg-6 الأول في RTL = يمين الصفحة) -->
+          <div class="col-lg-6 order-lg-1">
             <div class="about-content">
               <p class="section-label">عن ريفيتال</p>
               <h2 class="section-title">
@@ -38,15 +40,15 @@ import { CommonModule } from '@angular/common';
                   </div>
                   <div class="feature-item">
                     <i class="bi bi-check-circle-fill"></i>
-                    <!-- Not Found in file -->
-                    <span> خدمات المختبرات الطبية</span>
+                    <span>خدمات المختبرات الطبية</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6 order-lg-1">
+          <!-- الصور على اليسار (col-lg-6 الثاني في RTL = يسار الصفحة) -->
+          <div class="col-lg-6 order-lg-2">
             <div class="about-images-grid">
               <!-- Decorative Pattern -->
               <div class="decorative-pattern">
@@ -69,12 +71,11 @@ import { CommonModule } from '@angular/common';
                 <div class="image-overlay"></div>
               </div>
 
-              <!-- Bottom Right Small Image -->
+              <!-- Bottom Left Small Image -->
               <div class="image-wrapper small-image-bottom">
                 <img [src]="'assets/doc.png'" 
                      alt="مختبرات متقدمة" 
                      class="img-fluid">
-               
               </div>
 
               <!-- Stats Cards -->
@@ -91,6 +92,7 @@ import { CommonModule } from '@angular/common';
               </div>
             </div>
           </div>
+
         </div>
 
         <!-- Features Icons Bottom -->
@@ -125,25 +127,24 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
     </section>
+
     <!-- Full Width Video Section -->
-<section class="about-video-section" id="about-video">
-  <video
-    #aboutVideo
-    class="about-video"
-    muted
-    loop
-    playsinline
-    preload="auto"
-  >
-    <source src="assets/INTRO2.mp4" type="video/mp4" />
-  </video>
+    <section class="about-video-section" id="about-video">
+      <video
+        #aboutVideo
+        class="about-video"
+        muted
+        loop
+        playsinline
+        preload="auto"
+      >
+        <source src="assets/INTRO2.mp4" type="video/mp4" />
+      </video>
 
-  <button class="mute-btn" (click)="toggleMute()">
-    <i class="bi" [ngClass]="isMuted ? 'bi-volume-mute-fill' : 'bi-volume-up-fill'"></i>
-  </button>
-</section>
-
-
+      <button class="mute-btn" (click)="toggleMute()">
+        <i class="bi" [ngClass]="isMuted ? 'bi-volume-mute-fill' : 'bi-volume-up-fill'"></i>
+      </button>
+    </section>
   `,
   styles: [`
     .about-section {
@@ -156,7 +157,7 @@ import { CommonModule } from '@angular/common';
     .section-label {
       color: #2E7DB5;
       font-weight: 600;
-      font-size: 19px;
+      font-size: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 10px;
@@ -179,7 +180,8 @@ import { CommonModule } from '@angular/common';
 
     .about-description {
       color: #5A6C7D;
-      font-size: 17px;
+      font-size: 20px;
+      width: 520px;
       line-height: 1.9;
       margin-bottom: 30px;
       text-align: justify;
@@ -200,7 +202,7 @@ import { CommonModule } from '@angular/common';
 
     .feature-item span {
       color: #1A2332;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 500;
     }
 
@@ -211,10 +213,11 @@ import { CommonModule } from '@angular/common';
       padding: 20px;
     }
 
+    /* النقاط الزخرفية على اليسار العلوي (جهة الصور) */
     .decorative-pattern {
       position: absolute;
       top: -20px;
-      right: -20px;
+      left: -20px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
@@ -274,55 +277,31 @@ import { CommonModule } from '@angular/common';
       opacity: 1;
     }
 
+    /* الصورة الكبيرة: تبدأ من اليسار (جهة الصور الآن) */
     .main-image {
       top: 50px;
-      right: 0;
+      left: 0;
       width: 70%;
       height: 450px;
       z-index: 2;
       border: 8px solid #FFFFFF;
     }
 
+    /* الصورة الصغيرة: أسفل اليمين داخل عمود الصور */
     .small-image-bottom {
       bottom: 0;
-      left: 0;
+      right: 0;
       width: 50%;
       height: 280px;
       z-index: 3;
       border: 6px solid #FFFFFF;
     }
 
-    .image-badge {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #2E7DB5, #68A8D8);
-      color: #FFFFFF;
-      padding: 12px 20px;
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 5px 20px rgba(46, 125, 181, 0.4);
-      animation: float-badge 3s ease-in-out infinite;
-    }
-
-    @keyframes float-badge {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .image-badge i {
-      font-size: 20px;
-    }
-
-    /* Stats Floating Card */
+    /* بطاقة الإحصاء: تطفو على يمين عمود الصور (الحافة الداخلية نحو النص) */
     .stats-floating {
       position: absolute;
       top: 150px;
-      left: -20px;
+      right: -20px;
       z-index: 4;
       animation: float-card 4s ease-in-out infinite;
     }
@@ -369,7 +348,7 @@ import { CommonModule } from '@angular/common';
 
     .stat-content p {
       color: #5A6C7D;
-      font-size: 13px;
+      font-size: 18px;
       margin: 5px 0 0 0;
       line-height: 1;
     }
@@ -431,7 +410,7 @@ import { CommonModule } from '@angular/common';
 
     .feature-box p {
       color: #5A6C7D;
-      font-size: 15px;
+      font-size: 20px;
       margin: 0;
     }
 
@@ -444,6 +423,7 @@ import { CommonModule } from '@angular/common';
         height: 500px;
         margin-bottom: 40px;
       }
+     
 
       .main-image {
         width: 75%;
@@ -457,7 +437,7 @@ import { CommonModule } from '@angular/common';
 
       .stats-floating {
         top: 120px;
-        left: -10px;
+        right: -10px;
       }
     }
 
@@ -471,7 +451,8 @@ import { CommonModule } from '@angular/common';
       }
 
       .about-description {
-        font-size: 16px;
+        font-size: 17px;
+        width: 420px;
       }
 
       .about-images-grid {
@@ -502,45 +483,48 @@ import { CommonModule } from '@angular/common';
         display: none;
       }
     }
-    /* Full Width Video */
-.about-video-section {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-}
 
-.about-video {
+    /* Full Width Video */
+    .about-video-section {
   width: 100%;
-  height: auto;          /* مهم */
-  max-height:115vh;     /* يمنع التمدد المبالغ فيه */
-  object-fit: cover;  /* بدل cover */
-  display: block;
-}
-.mute-btn {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 5;
+  height: 90vh;
+  position: relative;
+/* background: #000;*/
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.3s;
+  overflow: hidden;
 }
 
-.mute-btn:hover {
-  background: rgba(0, 0, 0, 0.85);
-  transform: scale(1.1);
+   .about-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* contain = يظهر الفيديو كامل مع بار أسود على الجنبين لو محتاج */
 }
 
+    .mute-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
 
+    .mute-btn:hover {
+      background: rgba(0, 0, 0, 0.85);
+      transform: scale(1.1);
+    }
   `]
 })
 export class AboutComponent implements AfterViewInit {
@@ -569,15 +553,14 @@ export class AboutComponent implements AfterViewInit {
   }
 
   toggleMute() {
-  const video = this.aboutVideo.nativeElement;
+    const video = this.aboutVideo.nativeElement;
 
-  this.isMuted = !this.isMuted;
-  video.muted = this.isMuted;
+    this.isMuted = !this.isMuted;
+    video.muted = this.isMuted;
 
-  if (!this.isMuted) {
-    video.volume = 1;
-    video.play(); // مهم جدًا
+    if (!this.isMuted) {
+      video.volume = 1;
+      video.play();
+    }
   }
-}
-
 }

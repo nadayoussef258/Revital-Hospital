@@ -70,7 +70,7 @@
 /* Introduction Section */
 .section-title {
   color: #1A2332;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   position: relative;
   display: inline-block;
@@ -180,7 +180,7 @@
 }
 
 .department-icon {
-  font-size: 56px;
+  font-size: 3.5rem;
   color: #2E7DB5;
   transition: all 0.4s ease;
   z-index: 1;
@@ -225,7 +225,7 @@
 /* Department Title */
 .department-title {
   color: #1A2332;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   transition: color 0.3s ease;
   min-height: 3rem; /* ارتفاع ثابت للعنوان */
@@ -333,7 +333,7 @@
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .icon-wrapper,
@@ -343,11 +343,11 @@
   }
 
   .department-icon {
-    font-size: 48px;
+    font-size: 3rem;
   }
 
   .department-title {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     min-height: 2.6rem;
   }
 
@@ -363,7 +363,7 @@
 
 @media (max-width: 576px) {
   .display-3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .lead {
@@ -377,7 +377,7 @@
   }
 
   .department-icon {
-    font-size: 42px;
+    font-size: 2.6rem;
   }
 
   .department-card {
@@ -389,7 +389,7 @@
   }
 
   .department-title {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     min-height: auto;
   }
 

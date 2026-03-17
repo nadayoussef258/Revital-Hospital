@@ -69,6 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
+/* Headings - Desktop (20-30px base) */
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.75rem; }
@@ -76,9 +77,63 @@ h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
 h6 { font-size: 1rem; }
 
+/* Body Text - Desktop (20-30px) */
 p {
+  font-size: 1.25rem;
   margin-bottom: 1rem;
   color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* Small text */
+.text-small, small {
+  font-size: 0.95rem;
+}
+
+/* Large text */
+.text-large {
+  font-size: 1.35rem;
+}
+
+/* Responsive Typography */
+/* Tablet (لغاية 25px) */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.1rem; }
+  h6 { font-size: 0.95rem; }
+  
+  p {
+    font-size: 1.15rem;
+  }
+  
+  .text-large {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile (17-20px) */
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.15rem; }
+  h4 { font-size: 1rem; }
+  h5 { font-size: 0.95rem; }
+  h6 { font-size: 0.9rem; }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  .text-small {
+    font-size: 0.9rem;
+  }
+  
+  .text-large {
+    font-size: 1.1rem;
+  }
 }
 
 a {
@@ -257,7 +312,7 @@ img {
   h6 { font-size: 1rem; }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
   html {
     font-size: 13px;
   }

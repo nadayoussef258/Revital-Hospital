@@ -1,0 +1,215 @@
+<!-- src/app/components/events/event-detail/event-detail.component.html -->
+<div class="event-detail-page" dir="rtl">
+  
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">جاري التحميل...</span>
+    </div>
+    <p class="mt-3 text-secondary">جاري تحميل التفاصيل...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="container py-5">
+    <div class="alert alert-danger text-center" role="alert">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      {{ error }}
+      <div class="mt-3">
+        <button class="btn btn-primary" (click)="goBack()">
+          <i class="bi bi-arrow-right me-2"></i>
+          العودة للفعاليات
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Content -->
+  <div *ngIf="event && !loading && !error">
+    
+    <!-- Hero Image -->
+    <div class="event-hero" *ngIf="event.images && event.images.length > 0">
+      <img [src]="event.images[0]" [alt]="event.title" class="hero-image">
+      <div class="hero-overlay"></div>
+      
+      <div class="container hero-content">
+        <button class="btn-back" (click)="goBack()">
+          <i class="bi bi-arrow-right"></i>
+          <span>العودة</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Event Details -->
+    <div class="container event-content-section">
+      <div class="row">
+        <div class="col-lg-8">
+          
+          <!-- Event Header -->
+          <div class="event-header">
+            <div class="event-meta-info">
+              <span class="meta-badge">
+                <i class="bi bi-calendar-event me-2"></i>
+                {{ formatDate(event.date) }}
+              </span>
+              <span class="meta-badge">
+                <i class="bi bi-geo-alt-fill me-2"></i>
+                {{ event.location }}
+              </span>
+            </div>
+            
+            <h1 class="event-title">{{ event.title }}</h1>
+            
+            <!-- Share Buttons -->
+            <div class="share-section">
+              <span class="share-label">مشاركة:</span>
+              <button class="btn-share" (click)="shareOnFacebook()" title="مشاركة على فيسبوك">
+                <i class="bi bi-facebook"></i>
+              </button>
+              <button class="btn-share" (click)="shareOnTwitter()" title="مشاركة على تويتر">
+                <i class="bi bi-twitter"></i>
+              </button>
+              <button class="btn-share" (click)="shareOnWhatsApp()" title="مشاركة على واتساب">
+                <i class="bi bi-whatsapp"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Event Description -->
+          <div class="event-description">
+            <h3 class="section-heading">
+              <i class="bi bi-info-circle me-2"></i>
+              تفاصيل الفعالية
+            </h3>
+            <p>{{ event.description }}</p>
+          </div>
+
+          <!-- Event Video -->
+          <div *ngIf="event.videoUrl" class="event-video">
+            <h3 class="section-heading">
+              <i class="bi bi-play-circle me-2"></i>
+              فيديو الفعالية
+            </h3>
+            <div class="video-container">
+              <iframe 
+                [src]="getSafeVideoUrl()" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+
+          <!-- Event Gallery -->
+          <div *ngIf="event.images && event.images.length > 1" class="event-gallery">
+            <h3 class="section-heading">
+              <i class="bi bi-images me-2"></i>
+              معرض الصور
+            </h3>
+            <div class="gallery-grid">
+              <div 
+                *ngFor="let image of event.images; let i = index" 
+                class="gallery-item"
+                (click)="openImageModal(i)">
+                <img [src]="image" [alt]="event.title + ' - صورة ' + (i + 1)" class="gallery-image">
+                <div class="gallery-overlay">
+                  <i class="bi bi-zoom-in"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="sidebar">
+            
+            <!-- Event Info Card -->
+            <div class="info-card">
+              <h4 class="info-card-title">معلومات الفعالية</h4>
+              
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="bi bi-calendar3"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">التاريخ</span>
+                  <span class="info-value">{{ formatDate(event.date) }}</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">المكان</span>
+                  <span class="info-value">{{ event.location }}</span>
+                </div>
+              </div>
+
+              <div class="info-item" *ngIf="event.images && event.images.length > 0">
+                <div class="info-icon">
+                  <i class="bi bi-camera"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">عدد الصور</span>
+                  <span class="info-value">{{ event.images.length }} صورة</span>
+                </div>
+              </div>
+
+              <div class="info-item" *ngIf="event.videoUrl">
+                <div class="info-icon">
+                  <i class="bi bi-play-btn"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">فيديو</span>
+                  <span class="info-value">متوفر</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Card -->
+            <div class="cta-card">
+              <h4 class="cta-title">هل أنت مهتم بفعالياتنا؟</h4>
+              <p class="cta-text">تابعنا على وسائل التواصل الاجتماعي لمعرفة آخر الفعاليات والأنشطة</p>
+              <a href="/contact" class="btn btn-cta">
+                <i class="bi bi-telephone-fill me-2"></i>
+                تواصل معنا
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Image Modal -->
+  <div class="image-modal" *ngIf="showImageModal && event" (click)="closeImageModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeImageModal()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      
+      <button class="modal-nav modal-prev" (click)="previousImage(); $event.stopPropagation()">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+      
+      <img 
+        [src]="event.images![selectedImageIndex]" 
+        [alt]="event.title"
+        class="modal-image">
+      
+      <button class="modal-nav modal-next" (click)="nextImage(); $event.stopPropagation()">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      
+      <div class="modal-counter">
+        {{ selectedImageIndex + 1 }} / {{ event.images!.length }}
+      </div>
+    </div>
+  </div>
+
+</div>

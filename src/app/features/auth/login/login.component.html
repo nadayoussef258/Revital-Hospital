@@ -1,0 +1,101 @@
+<!-- src/app/components/admin/login/login.component.html -->
+<div class="login-page" dir="rtl">
+  <div class="login-container">
+    <div class="login-card">
+      
+      <!-- Logo and Header -->
+      <div class="login-header">
+        <img src="/assets/logo.png" alt="Revital Hospital Logo" class="logo">
+        <h2 class="login-title">لوحة التحكم</h2>
+        <p class="login-subtitle">تسجيل الدخول للوصول إلى لوحة التحكم</p>
+      </div>
+
+      <!-- Error Alert -->
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        <i class="bi bi-exclamation-circle-fill me-2"></i>
+        {{ error }}
+      </div>
+
+      <!-- Login Form -->
+      <form (ngSubmit)="onSubmit()" class="login-form">
+        
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email" class="form-label">
+            <i class="bi bi-envelope-fill me-2"></i>
+            البريد الإلكتروني
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            class="form-control"
+            placeholder="admin@revital.ae"
+            required
+            autocomplete="email"
+            [disabled]="loading">
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password" class="form-label">
+            <i class="bi bi-lock-fill me-2"></i>
+            كلمة المرور
+          </label>
+          <div class="password-wrapper">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              name="password"
+              [(ngModel)]="password"
+              class="form-control"
+              placeholder="••••••••"
+              required
+              autocomplete="current-password"
+              [disabled]="loading">
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePasswordVisibility()"
+              [disabled]="loading">
+              <i [class]="showPassword ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="btn btn-login"
+          [disabled]="loading">
+          <span *ngIf="!loading">
+            <i class="bi bi-box-arrow-in-left me-2"></i>
+            تسجيل الدخول
+          </span>
+          <span *ngIf="loading">
+            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+            جاري تسجيل الدخول...
+          </span>
+        </button>
+
+      </form>
+
+      <!-- Footer Note -->
+      <div class="login-footer">
+        <p class="footer-note">
+          <i class="bi bi-shield-lock-fill me-2"></i>
+          هذه الصفحة محمية ومخصصة للمسؤولين فقط
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="bg-decoration">
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+      <div class="decoration-circle circle-3"></div>
+    </div>
+  </div>
+</div>

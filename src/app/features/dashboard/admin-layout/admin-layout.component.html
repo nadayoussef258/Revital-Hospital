@@ -1,0 +1,74 @@
+<!-- src/app/components/admin/admin-layout/admin-layout.component.html -->
+<div class="admin-container" dir="rtl">
+  
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.closed]="!isSidebarOpen">
+    
+    <!-- Logo Section -->
+    <div class="sidebar-header">
+      <div class="logo-container">
+        <img src="/assets/logo.png" alt="Revital Hospital" class="sidebar-logo">
+        <h3 class="sidebar-title" *ngIf="isSidebarOpen"  style="color: aliceblue;">لوحة التحكم</h3>
+      </div>
+    </div>
+
+    <!-- User Info -->
+    <div class="user-info" *ngIf="isSidebarOpen">
+      <div class="user-avatar">
+        <i class="bi bi-person-circle"></i>
+      </div>
+      <div class="user-details">
+        <p class="user-name" style="color: aliceblue;">المسؤول</p>
+        <p class="user-email" style="color: aliceblue;">{{ currentUserEmail }}</p>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+      <a 
+        *ngFor="let item of menuItems"
+        [routerLink]="item.external ? null : item.route"
+        [href]="item.external ? item.route : null"
+        [target]="item.external ? '_blank' : undefined"
+        class="nav-item"
+        [class.active]="isActiveRoute(item.route)"
+        [title]="!isSidebarOpen ? item.label : ''">
+        <i class="nav-icon" [class]="'bi ' + item.icon"></i>
+        <span class="nav-label" *ngIf="isSidebarOpen">{{ item.label }}</span>
+        <i class="bi bi-box-arrow-up-left external-icon" *ngIf="item.external && isSidebarOpen"></i>
+      </a>
+    </nav>
+
+    <!-- Logout Button -->
+    <div class="sidebar-footer">
+      <button class="logout-btn" (click)="logout()" [title]="!isSidebarOpen ? 'تسجيل الخروج' : ''">
+        <i class="bi bi-box-arrow-left"></i>
+        <span *ngIf="isSidebarOpen">تسجيل الخروج</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" [class.expanded]="!isSidebarOpen">
+    
+    <!-- Top Header -->
+    <header class="content-header">
+      <button class="toggle-sidebar-btn" (click)="toggleSidebar()">
+        <i class="bi" [class.bi-list]="!isSidebarOpen" [class.bi-x-lg]="isSidebarOpen"></i>
+      </button>
+      
+      <div class="header-title">
+        <h1>مرحباً بك في لوحة التحكم</h1>
+        <p class="header-subtitle">إدارة فعاليات مستشفى ريفيتال</p>
+      </div>      
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </main>
+
+</div>

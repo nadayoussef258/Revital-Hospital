@@ -1,0 +1,255 @@
+<!-- src/app/components/admin/event-form/event-form.component.html -->
+<div class="event-form-page" dir="rtl">
+  
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">
+      <i class="bi" [class.bi-plus-circle]="!isEditMode" [class.bi-pencil-square]="isEditMode"></i>
+      {{ isEditMode ? 'تعديل الفعالية' : 'إضافة فعالية جديدة' }}
+    </h1>
+    <p class="page-subtitle">
+      {{ isEditMode ? 'قم بتحديث معلومات الفعالية' : 'أضف فعالية جديدة لعرضها على الموقع' }}
+    </p>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner-border text-primary"></div>
+    <p>جاري التحميل...</p>
+  </div>
+
+  <!-- Form -->
+  <form *ngIf="!loading" (ngSubmit)="onSubmit()" class="event-form">
+    
+    <!-- Error Alert -->
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      {{ error }}
+      <button type="button" class="btn-close" (click)="error = null"></button>
+    </div>
+
+    <!-- Basic Information Section -->
+    <div class="form-section">
+      <h2 class="section-title">
+        <i class="bi bi-info-circle me-2"></i>
+        المعلومات الأساسية
+      </h2>
+
+      <div class="row">
+        <!-- Title -->
+        <div class="col-12">
+          <div class="form-group">
+            <label for="title" class="form-label required">عنوان الفعالية</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              [(ngModel)]="title"
+              class="form-control"
+              placeholder="مثال: يوم صحي مفتوح"
+              required
+              maxlength="200">
+            <small class="form-text">{{ title.length }}/200</small>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="col-12">
+          <div class="form-group">
+            <label for="description" class="form-label required">وصف الفعالية</label>
+            <textarea
+              id="description"
+              name="description"
+              [(ngModel)]="description"
+              class="form-control"
+              rows="6"
+              placeholder="اكتب وصفاً تفصيلياً عن الفعالية..."
+              required></textarea>
+            <small class="form-text">{{ description.length }} حرف</small>
+          </div>
+        </div>
+
+        <!-- Date -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="date" class="form-label required">تاريخ الفعالية</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              [(ngModel)]="date"
+              class="form-control"
+              required>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="location" class="form-label required">المكان</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              [(ngModel)]="location"
+              class="form-control"
+              placeholder="مثال: مستشفى ريفيتال - دبي"
+              required>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Images Section -->
+    <div class="form-section">
+      <h2 class="section-title">
+        <i class="bi bi-images me-2"></i>
+        صور الفعالية
+        <span class="badge bg-primary">مطلوب</span>
+      </h2>
+
+      <!-- Upload Button -->
+      <div class="upload-area">
+        <input
+          type="file"
+          id="images"
+          accept="image/*"
+          multiple
+          (change)="onImageSelect($event)"
+          class="file-input"
+          [disabled]="imagePreviews.length >= maxImages">
+        
+        <label for="images" class="upload-label" [class.disabled]="imagePreviews.length >= maxImages">
+          <i class="bi bi-cloud-upload"></i>
+          <span class="upload-text">اضغط لاختيار الصور</span>
+          <span class="upload-hint">أو اسحب الصور هنا (حد أقصى {{ maxImages }} صور، 5 ميجا لكل صورة)</span>
+        </label>
+      </div>
+
+      <!-- Image Previews -->
+      <div *ngIf="imagePreviews.length > 0" class="images-grid">
+        <div *ngFor="let preview of imagePreviews; let i = index" class="image-preview-card">
+          <img [src]="preview.url" [alt]="'صورة ' + (i + 1)">
+          <button type="button" class="remove-btn" (click)="removeImage(i)">
+            <i class="bi bi-x-lg"></i>
+          </button>
+          <span class="image-badge" *ngIf="preview.existing">صورة موجودة</span>
+          <span class="image-number">{{ i + 1 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="form-section">
+      <h2 class="section-title">
+        <i class="bi bi-play-circle me-2"></i>
+        فيديو الفعالية
+        <span class="badge bg-secondary">اختياري</span>
+      </h2>
+
+      <div class="row">
+        <!-- Video File Upload -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">رفع ملف فيديو</label>
+            <input
+              type="file"
+              id="video"
+              accept="video/*"
+              (change)="onVideoSelect($event)"
+              class="file-input">
+            
+            <label for="video" class="upload-label upload-label-small">
+              <i class="bi bi-film"></i>
+              <span>اختر ملف فيديو (حد أقصى 50 ميجا)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- OR Separator -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="videoUrl" class="form-label">أو رابط YouTube</label>
+            <input
+              type="url"
+              id="videoUrl"
+              name="videoUrl"
+              [(ngModel)]="videoUrl"
+              class="form-control"
+              placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Preview -->
+      <div *ngIf="videoPreview || existingVideoUrl" class="video-preview">
+        <div class="video-preview-container">
+          <video *ngIf="videoPreview" [src]="videoPreview" controls class="video-element"></video>
+          <div *ngIf="!videoPreview && existingVideoUrl" class="existing-video-info">
+            <i class="bi bi-play-circle-fill"></i>
+            <p>فيديو موجود</p>
+            <a [href]="existingVideoUrl" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-box-arrow-up-right me-1"></i>
+              عرض
+            </a>
+          </div>
+          <button type="button" class="remove-video-btn" (click)="removeVideo()">
+            <i class="bi bi-trash"></i>
+            إزالة الفيديو
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publishing Options -->
+    <div class="form-section">
+      <h2 class="section-title">
+        <i class="bi bi-gear me-2"></i>
+        خيارات النشر
+      </h2>
+
+      <div class="form-check form-switch publish-switch">
+        <input
+          type="checkbox"
+          id="published"
+          name="published"
+          [(ngModel)]="published"
+          class="form-check-input">
+        <label for="published" class="form-check-label">
+          <strong>نشر الفعالية</strong>
+          <span class="d-block text-muted">
+            {{ published ? 'الفعالية ستظهر على الموقع فوراً' : 'الفعالية ستُحفظ كمسودة' }}
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button 
+        type="submit" 
+        class="btn btn-primary btn-lg"
+        [disabled]="saving">
+        <span *ngIf="!saving">
+          <i class="bi" [class.bi-check-circle]="isEditMode" [class.bi-plus-circle]="!isEditMode"></i>
+          {{ isEditMode ? 'حفظ التعديلات' : 'إضافة الفعالية' }}
+        </span>
+        <span *ngIf="saving">
+          <span class="spinner-border spinner-border-sm me-2"></span>
+          جاري الحفظ...
+        </span>
+      </button>
+
+      <button 
+        type="button" 
+        class="btn btn-secondary btn-lg"
+        (click)="cancel()"
+        [disabled]="saving">
+        <i class="bi bi-x-circle"></i>
+        إلغاء
+      </button>
+    </div>
+
+  </form>
+
+</div>

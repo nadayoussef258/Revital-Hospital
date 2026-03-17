@@ -38,6 +38,7 @@ isMenuOpen = false;
 
     },
     { label: 'الأطباء', route: '/#team', active: false },
+    { label: 'الفعاليات', route: '/events', active: false },
     { label: 'اتصل بنا', route: '/contact', active: false }
   ];
 

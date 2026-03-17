@@ -27,7 +27,7 @@
 .nav-link {
   color: #1A2332 !important;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.05rem;
   padding: 0.5rem 1rem !important;
   position: relative;
   transition: all 0.3s ease;
@@ -84,7 +84,7 @@
   padding: 0.6rem 1rem;
   border-radius: 8px;
   transition: all 0.2s ease;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .dropdown-item:hover {

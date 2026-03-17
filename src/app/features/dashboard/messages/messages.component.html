@@ -1,0 +1,179 @@
+<!-- src/app/components/admin/messages/messages.component.html -->
+<div class="messages-page" dir="rtl">
+  
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">
+      <i class="bi bi-envelope-fill me-2"></i>
+      رسائل التواصل
+    </h1>
+    <p class="page-subtitle">إدارة رسائل العملاء والاستفسارات</p>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-grid">
+    <div class="stat-card" [class.active]="selectedFilter === 'all'" (click)="filterMessages('all')">
+      <div class="stat-icon stat-total">
+        <i class="bi bi-envelope"></i>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.total }}</h3>
+        <p class="stat-label">إجمالي الرسائل</p>
+      </div>
+    </div>
+
+    <div class="stat-card" [class.active]="selectedFilter === 'new'" (click)="filterMessages('new')">
+      <div class="stat-icon stat-new">
+        <i class="bi bi-envelope-exclamation"></i>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.new }}</h3>
+        <p class="stat-label">رسائل جديدة</p>
+      </div>
+    </div>
+
+    <div class="stat-card" [class.active]="selectedFilter === 'read'" (click)="filterMessages('read')">
+      <div class="stat-icon stat-read">
+        <i class="bi bi-envelope-open"></i>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.read }}</h3>
+        <p class="stat-label">مقروءة</p>
+      </div>
+    </div>
+
+    <div class="stat-card" [class.active]="selectedFilter === 'replied'" (click)="filterMessages('replied')">
+      <div class="stat-icon stat-replied">
+        <i class="bi bi-envelope-check"></i>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.replied }}</h3>
+        <p class="stat-label">تم الرد</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messages Section -->
+  <div class="messages-section">
+    
+    <!-- Search Bar -->
+    <div class="search-bar mb-4">
+      <i class="bi bi-search search-icon"></i>
+      <input 
+        type="text" 
+        class="form-control search-input" 
+        placeholder="بحث في الرسائل..."
+        (input)="searchMessages($any($event.target).value)">
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-state">
+      <div class="spinner-border text-primary"></div>
+      <p>جاري تحميل الرسائل...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="alert alert-danger">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      {{ error }}
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!loading && !error && filteredMessages.length === 0" class="empty-state">
+      <i class="bi bi-inbox empty-icon"></i>
+      <h3>لا توجد رسائل</h3>
+      <p>لم يتم استلام أي رسائل بعد</p>
+    </div>
+
+    <!-- Messages List -->
+    <div *ngIf="!loading && !error && filteredMessages.length > 0" class="messages-list">
+      <div *ngFor="let message of filteredMessages" class="message-card" [class.unread]="message.status === 'new'">
+        
+        <!-- Message Header -->
+        <div class="message-header">
+          <div class="message-sender">
+            <div class="sender-avatar">
+              <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="sender-info">
+              <h4 class="sender-name">{{ message.name }}</h4>
+              <span class="message-date">{{ formatDate(message.createdAt) }}</span>
+            </div>
+          </div>
+          
+          <span class="status-badge" [ngClass]="getStatusBadgeClass(message.status)">
+            {{ getStatusText(message.status) }}
+          </span>
+        </div>
+
+        <!-- Message Body -->
+        <div class="message-body">
+          <h5 class="message-subject">
+            <i class="bi bi-chat-left-text me-2"></i>
+            {{ message.subject }}
+          </h5>
+          <p class="message-text">{{ message.message }}</p>
+        </div>
+
+        <!-- Message Contact Info -->
+        <div class="message-contact">
+          <a [href]="'mailto:' + message.email" class="contact-link">
+            <i class="bi bi-envelope"></i>
+            {{ message.email }}
+          </a>
+          <a [href]="'tel:' + message.phone" class="contact-link">
+            <i class="bi bi-telephone"></i>
+            {{ message.phone }}
+          </a>
+        </div>
+
+        <!-- Notes (if replied) -->
+        <div *ngIf="message.notes" class="message-notes">
+          <i class="bi bi-sticky me-2"></i>
+          <strong>ملاحظات:</strong> {{ message.notes }}
+        </div>
+
+        <!-- Message Actions -->
+        <div class="message-actions">
+          <button 
+            *ngIf="message.status === 'new'"
+            class="btn-action btn-read"
+            (click)="markAsRead(message)"
+            title="تعليم كمقروءة">
+            <i class="bi bi-envelope-open"></i>
+            مقروءة
+          </button>
+
+          
+
+          <button 
+            *ngIf="message.status !== 'replied'"
+            class="btn-action btn-replied"
+            (click)="markAsReplied(message)"
+            title="تعليم كتم الرد">
+            <i class="bi bi-check-circle"></i>
+            تم الرد
+          </button>
+
+          <button 
+            class="btn-action btn-call"
+            (click)="callPhone(message.phone)"
+            title="اتصال">
+            <i class="bi bi-telephone"></i>
+            اتصال
+          </button>
+
+          <button 
+            class="btn-action btn-delete"
+            (click)="deleteMessage(message)"
+            title="حذف">
+            <i class="bi bi-trash"></i>
+            حذف
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

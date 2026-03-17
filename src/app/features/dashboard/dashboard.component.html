@@ -1,0 +1,169 @@
+<!-- src/app/components/admin/dashboard/dashboard.component.html - NEW VERSION -->
+<div class="dashboard-home" dir="rtl">
+  
+  <!-- Welcome Section -->
+  <div class="welcome-section">
+    <h1 class="welcome-title">
+      <i class="bi bi-house-heart-fill me-2"></i>
+      مرحباً في لوحة التحكم
+    </h1>
+    <p class="welcome-subtitle">نظرة عامة على نشاطات المستشفى</p>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner-border text-primary"></div>
+    <p>جاري تحميل الإحصائيات...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="alert alert-danger">
+    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+    {{ error }}
+  </div>
+
+  <!-- Stats Grid -->
+  <div *ngIf="!loading && !error">
+    
+    <!-- Events Statistics -->
+    <div class="stats-section">
+      <h2 class="section-title">
+        <i class="bi bi-calendar-event me-2"></i>
+        إحصائيات الفعاليات
+      </h2>
+      
+      <div class="stats-grid">
+        <a routerLink="/admin/events/list" class="stat-card stat-total">
+          <div class="stat-icon">
+            <i class="bi bi-calendar-event"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ eventsCount.total }}</h3>
+            <p class="stat-label">إجمالي الفعاليات</p>
+          </div>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+
+        <a routerLink="/admin/events/list" [queryParams]="{filter: 'published'}" class="stat-card stat-published">
+          <div class="stat-icon">
+            <i class="bi bi-check-circle"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ eventsCount.published }}</h3>
+            <p class="stat-label">الفعاليات المنشورة</p>
+          </div>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+
+        <a routerLink="/admin/events/list" [queryParams]="{filter: 'draft'}" class="stat-card stat-draft">
+          <div class="stat-icon">
+            <i class="bi bi-file-earmark"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ eventsCount.draft }}</h3>
+            <p class="stat-label">المسودات</p>
+          </div>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+
+        <a routerLink="/admin/events/new" class="stat-card stat-action">
+          <div class="stat-icon">
+            <i class="bi bi-plus-circle"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">+</h3>
+            <p class="stat-label">إضافة فعالية جديدة</p>
+          </div>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Messages Statistics -->
+    <div class="stats-section">
+      <h2 class="section-title">
+        <i class="bi bi-envelope-fill me-2"></i>
+        إحصائيات الرسائل
+      </h2>
+      
+      <div class="stats-grid">
+        <a routerLink="/admin/messages" class="stat-card stat-messages-total">
+          <div class="stat-icon">
+            <i class="bi bi-envelope"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ messagesCount.total }}</h3>
+            <p class="stat-label">إجمالي الرسائل</p>
+          </div>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+
+        <a routerLink="/admin/messages" [queryParams]="{filter: 'new'}" class="stat-card stat-messages-new">
+          <div class="stat-icon">
+            <i class="bi bi-envelope-exclamation"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ messagesCount.new }}</h3>
+            <p class="stat-label">رسائل جديدة</p>
+          </div>
+          <span *ngIf="messagesCount.new > 0" class="notification-pulse"></span>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+
+        <a routerLink="/admin/messages" [queryParams]="{filter: 'read'}" class="stat-card stat-messages-read">
+          <div class="stat-icon">
+            <i class="bi bi-envelope-open"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ messagesCount.read }}</h3>
+            <p class="stat-label">رسائل مقروءة</p>
+          </div>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+
+        <a routerLink="/admin/messages" [queryParams]="{filter: 'replied'}" class="stat-card stat-messages-replied">
+          <div class="stat-icon">
+            <i class="bi bi-envelope-check"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ messagesCount.replied }}</h3>
+            <p class="stat-label">تم الرد عليها</p>
+          </div>
+          <i class="bi bi-arrow-left card-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions-section">
+      <h2 class="section-title">
+        <i class="bi bi-lightning-fill me-2"></i>
+        إجراءات سريعة
+      </h2>
+      
+      <div class="quick-actions-grid">
+        <a routerLink="/admin/events/new" class="quick-action-card">
+          <i class="bi bi-plus-circle-fill"></i>
+          <span>إضافة فعالية</span>
+        </a>
+
+        <a routerLink="/admin/messages" class="quick-action-card">
+          <i class="bi bi-envelope-fill"></i>
+          <span>عرض الرسائل</span>
+        </a>
+
+        <a routerLink="/admin/events/list" class="quick-action-card">
+          <i class="bi bi-list-ul"></i>
+          <span>جميع الفعاليات</span>
+        </a>
+
+        <a href="/" target="_blank" class="quick-action-card">
+          <i class="bi bi-globe"></i>
+          <span>زيارة الموقع</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>

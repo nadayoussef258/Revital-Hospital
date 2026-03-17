@@ -14,7 +14,7 @@ import { Router, RouterModule } from '@angular/router';
         <div class="container">
           <div class="row g-4">
             <!-- About Section -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-6">
               <div class="footer-section">
                 <div class="footer-logo">
                   <img src="logo.png" alt="مستشفى ريفيتال" class="logo-img">
@@ -36,7 +36,7 @@ import { Router, RouterModule } from '@angular/router';
             </div>
 
             <!-- Quick Links -->
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-3 col-md-6">
               <div class="footer-section">
                 <h4 class="footer-title">روابط سريعة</h4>
                 <ul class="footer-links">
@@ -125,6 +125,7 @@ import { Router, RouterModule } from '@angular/router';
     .footer-main {
       padding: 80px 0 40px;
       border-top: 3px solid #E8F3F9;
+      
     }
 
     .footer-section {
@@ -136,7 +137,7 @@ import { Router, RouterModule } from '@angular/router';
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 20px;
+      margin-bottom: -30px;
     }
 
     .logo-img {
@@ -177,6 +178,7 @@ import { Router, RouterModule } from '@angular/router';
       text-decoration: none;
       transition: all 0.3s ease;
       border: 2px solid transparent;
+      margin-right:20px;
     }
 
     .social-icon:hover {
@@ -315,6 +317,7 @@ import { Router, RouterModule } from '@angular/router';
     .copyright {
       color: #5A6C7D;
       font-size: 14px;
+      text-align: center;
       margin: 0;
     }
 
@@ -354,6 +357,7 @@ import { Router, RouterModule } from '@angular/router';
     @media (max-width: 991px) {
       .footer-main {
         padding: 60px 0 30px;
+        justify-content: center;
       }
 
       .footer-title {
@@ -365,6 +369,7 @@ import { Router, RouterModule } from '@angular/router';
     @media (max-width: 767px) {
       .footer-main {
         padding: 40px 0 20px;
+        
       }
 
       .footer-logo h3 {

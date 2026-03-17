@@ -3,6 +3,7 @@
   background: linear-gradient(to bottom, #FFFFFF 0%, #F5F8FA 100%);
   position: relative;
   overflow: hidden;
+  direction: ltr;
 }
 
 .who-we-are-section::before {
@@ -130,6 +131,7 @@
 /* Features Grid */
 .features-grid {
   display: grid;
+  direction: rtl  ;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
   margin: 2rem 0;

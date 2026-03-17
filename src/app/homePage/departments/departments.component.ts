@@ -78,7 +78,7 @@ interface Department {
     .section-label {
       color: #2E7DB5;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 10px;
@@ -86,7 +86,7 @@ interface Department {
 
     .section-title {
       color: #1A2332;
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 700;
       line-height: 1.3;
       margin-bottom: 20px;
@@ -199,8 +199,9 @@ interface Department {
 
     .department-description {
       color: #5A6C7D;
-      font-size: 16px;
+      font-size: 20px;
       line-height: 1.8;
+      height: 140px;
       margin-bottom: 25px;
     }
 
@@ -226,7 +227,7 @@ interface Department {
 
     .features-list span {
       color: #5A6C7D;
-      font-size: 15px;
+      font-size: 18px;
       line-height: 1.5;
       font-weight: 500;
     }
