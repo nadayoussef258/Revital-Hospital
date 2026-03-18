@@ -180,7 +180,7 @@ import { CommonModule } from '@angular/common';
 
     .about-description {
       color: #5A6C7D;
-      font-size: 20px;
+      font-size: 1.25rem;
       
       width: 520px;
       line-height: 1.9;
@@ -197,13 +197,13 @@ import { CommonModule } from '@angular/common';
 
     .feature-item i {
       color: #4CAF50;
-      font-size: 22px;
+      font-size: 1.35rem;
       flex-shrink: 0;
     }
 
     .feature-item span {
       color: #1A2332;
-      font-size: 20px;
+      font-size: 1.28rem;
       font-weight: 500;
     }
 
@@ -404,20 +404,23 @@ import { CommonModule } from '@angular/common';
 
     .feature-box h5 {
       color: #1A2332;
-      font-size: 20px;
+      font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 10px;
     }
 
     .feature-box p {
       color: #5A6C7D;
-      font-size: 20px;
+      font-size: 1.25rem;
       margin: 0;
     }
 
     @media (max-width: 991px) {
       .section-title {
-        font-size: 36px;
+        font-size: 1.6rem;
+      }
+      .section-label{
+        font-size: 1.25rem;
       }
 
       .about-images-grid {
@@ -446,14 +449,20 @@ import { CommonModule } from '@angular/common';
       .about-section {
         padding: 60px 0;
       }
-
+ .section-label{
+        font-size: 1.25rem;
+      }
+ .feature-item span {
+      font-size: 1.2rem;
+    
+    }
       .section-title {
-        font-size: 30px;
+        font-size: 1.5rem;
       }
 
       .about-description {
-        font-size: 17px;
-        width: 420px;
+        font-size: 1.1rem;
+        width: 350px;
       }
 
       .about-images-grid {

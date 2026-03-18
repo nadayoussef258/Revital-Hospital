@@ -192,14 +192,14 @@ interface Department {
 
     .department-title {
       color: #1A2332;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 15px;
     }
 
     .department-description {
       color: #5A6C7D;
-      font-size: 20px;
+      font-size: 1.25rem;
       line-height: 1.8;
       height: 140px;
       margin-bottom: 25px;
@@ -221,13 +221,13 @@ interface Department {
 
     .features-list i {
       color: #4CAF50;
-      font-size: 18px;
+      font-size: 1.1rem;
       flex-shrink: 0;
     }
 
     .features-list span {
       color: #5A6C7D;
-      font-size: 18px;
+      font-size: 1.1rem;
       line-height: 1.5;
       font-weight: 500;
     }
@@ -325,13 +325,27 @@ interface Department {
       .btn-icon {
         font-size: 18px;
       }
+        .department-title {
+      font-size: 1.35rem;
+
+    }
+
+    .department-description {
+      font-size: 1.2rem;
+            height: 100px;
+
+  
+    }
+
 
       .departments-section {
         padding: 60px 0;
       }
-
+.section-label{
+  font-size: 1.25rem;
+}
       .section-title {
-        font-size: 32px;
+        font-size: 1.5rem;
       }
       
       .department-card {

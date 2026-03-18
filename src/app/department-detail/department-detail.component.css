@@ -368,11 +368,15 @@
   }
   
   .service-number {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 4vw, 2rem);
   }
   
   .service-title {
-    font-size: 1.5rem;
+    font-size: clamp(1.35rem, 3.2vw, 1.5rem);
+  }
+  
+  .section-title {
+    font-size: clamp(1.4rem, 3vw, 1.65rem);
   }
 }
 
@@ -382,7 +386,23 @@
   }
   
   .display-4 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 6vw, 2rem);
+  }
+  
+  .section-title {
+    font-size: clamp(1.2rem, 4.5vw, 1.45rem);
+  }
+  
+  .service-number {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+  
+  .service-title {
+    font-size: clamp(1.35rem, 4.5vw, 1.6rem);
+  }
+  
+  .service-list li span {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
   }
   
   .cta-card {

@@ -25,19 +25,17 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   color: #FFFFFF;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-
   animation: fadeInUp 0.8s ease-out;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-    color: #FFFFFF;
-
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: #FFFFFF;
   animation: fadeInUp 1s ease-out;
 }
 
