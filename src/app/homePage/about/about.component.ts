@@ -182,7 +182,6 @@ import { CommonModule } from '@angular/common';
       color: #5A6C7D;
       font-size: 1.25rem;
       
-      width: 520px;
       line-height: 1.9;
       margin-bottom: 30px;
       text-align: justify;
@@ -462,7 +461,6 @@ import { CommonModule } from '@angular/common';
 
       .about-description {
         font-size: 1.1rem;
-        width: 350px;
       }
 
       .about-images-grid {
