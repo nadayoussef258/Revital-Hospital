@@ -34,9 +34,22 @@
   min-height: 50vh;
 }
 
-.services-hero h1,
+
+.services-hero h1{
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease-out;
+
+}
+
 .services-hero p {
-  color: white !important;
+  font-size: 1.5rem;
+    color: #FFFFFF;
+
+  animation: fadeInUp 1s ease-out;
 }
 
 .divider-line {

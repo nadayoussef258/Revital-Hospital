@@ -156,8 +156,8 @@ import { CommonModule } from '@angular/common';
 
     .section-label {
       color: #2E7DB5;
-      font-weight: 600;
-      font-size: 20px;
+      font-weight: 700;
+      font-size: 1.5rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 10px;
@@ -165,8 +165,8 @@ import { CommonModule } from '@angular/common';
 
     .section-title {
       color: #23334fff;
-      font-size: 38px;
-      font-weight: 800;
+      font-size: 2.5rem;
+      font-weight: 700;
       line-height: 1.4;
       margin-bottom: 20px;
     }
@@ -181,6 +181,7 @@ import { CommonModule } from '@angular/common';
     .about-description {
       color: #5A6C7D;
       font-size: 20px;
+      
       width: 520px;
       line-height: 1.9;
       margin-bottom: 30px;

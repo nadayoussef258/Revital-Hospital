@@ -146,20 +146,9 @@ import { Router, RouterModule } from '@angular/router';
       object-fit: contain;
     }
 
-    .footer-logo h3 {
-      color: #2E7DB5;
-      font-size: 24px;
-      font-weight: 800;
-      margin: 0;
-    }
+    
 
-    .footer-description {
-      color: #5A6C7D;
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-
+   
     /* Social Links */
     .social-links {
       display: flex;
@@ -196,7 +185,7 @@ import { Router, RouterModule } from '@angular/router';
     /* Footer Titles */
     .footer-title {
       color: #1A2332;
-      font-size: 20px;
+      font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 25px;
       position: relative;
@@ -228,7 +217,7 @@ import { Router, RouterModule } from '@angular/router';
     .footer-links a {
       color: #5A6C7D;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
@@ -270,7 +259,7 @@ import { Router, RouterModule } from '@angular/router';
 
     .contact-item i {
       color: #2E7DB5;
-      font-size: 22px;
+      font-size: 1.1rem;
       flex-shrink: 0;
       margin-top: 3px;
       width: 30px;
@@ -285,14 +274,14 @@ import { Router, RouterModule } from '@angular/router';
 
     .contact-item strong {
       color: #1A2332;
-      font-size: 15px;
+      font-size: 1.2rem;
       display: block;
       margin-bottom: 5px;
     }
 
     .contact-item p {
       color: #5A6C7D;
-      font-size: 14px;
+      font-size: 1.1rem;
       margin: 0;
       line-height: 1.6;
     }
@@ -316,7 +305,7 @@ import { Router, RouterModule } from '@angular/router';
 
     .copyright {
       color: #5A6C7D;
-      font-size: 14px;
+      font-size: 1rem;
       text-align: center;
       margin: 0;
     }

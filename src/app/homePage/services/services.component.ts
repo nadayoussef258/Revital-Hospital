@@ -87,7 +87,7 @@ interface Service {
     .section-label {
       color: #2E7DB5;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 1.5rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 12px;
@@ -99,8 +99,8 @@ interface Service {
 
     .section-title {
       color: #1A2332;
-      font-size: 42px;
-      font-weight: 800;
+      font-size: 2.5rem;
+      font-weight: 700;
       line-height: 1.3;
       margin-bottom: 20px;
     }
@@ -210,7 +210,7 @@ interface Service {
 
     .service-title {
       color: #1A2332;
-      font-size: 26px;
+      font-size: 1.55rem;
       font-weight: 800;
       margin-bottom: 8px;
       line-height: 1.4;
@@ -223,7 +223,7 @@ interface Service {
 
     .service-title-en {
       color: #336286ff;
-      font-size: 18px;
+      font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: 1.5px;
       margin-bottom: 18px;
@@ -233,7 +233,7 @@ interface Service {
 
     .service-description {
       color: #5A6C7D;
-      font-size: 16px;
+      font-size: 1.25rem;
       line-height: 1.9;
       margin-bottom: 0;
       font-weight: 500;
@@ -245,7 +245,7 @@ interface Service {
       color: white;
       border: none;
       padding: 18px 50px;
-      font-size: 18px;
+      font-size: 1.25rem;
       font-weight: 700;
       border-radius: 50px;
       cursor: pointer;
@@ -329,7 +329,7 @@ interface Service {
       }
 
       .section-title {
-        font-size: 32px;
+        font-size: 1.45rem;
       }
       
       .service-card {
@@ -350,11 +350,11 @@ interface Service {
       }
 
       .service-title-en {
-        font-size: 12px;
+        font-size: 1.25rem;
       }
 
       .service-description {
-        font-size: 15px;
+        font-size: 1.1rem;
       }
 
       .btn-more-services {

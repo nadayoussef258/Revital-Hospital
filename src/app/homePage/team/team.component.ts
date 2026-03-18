@@ -56,7 +56,7 @@ interface Doctor {
     .section-label {
       color: #2E7DB5;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 1.25rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 12px;
@@ -68,8 +68,8 @@ interface Doctor {
 
     .section-title {
       color: #1A2332;
-      font-size: 42px;
-      font-weight: 800;
+      font-size: 2.5rem;
+      font-weight: 700;
       line-height: 1.3;
       margin-bottom: 20px;
     }
@@ -148,7 +148,7 @@ interface Doctor {
 
     .doctor-name {
       color: #2E7DB5;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 10px;
       line-height: 1.3;
@@ -156,7 +156,7 @@ interface Doctor {
 
     .doctor-specialty {
       color: #5A6C7D;
-      font-size: 16px;
+      font-size: 1.25rem;
       font-weight: 500;
       margin-bottom: 0;
       line-height: 1.5;
@@ -179,13 +179,7 @@ interface Doctor {
         padding: 20px 25px;
       }
 
-      .doctor-name {
-        font-size: 20px;
-      }
-
-      .doctor-specialty {
-        font-size: 15px;
-      }
+     
     }
 
     @media (max-width: 576px) {

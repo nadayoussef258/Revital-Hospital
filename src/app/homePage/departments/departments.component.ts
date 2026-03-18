@@ -77,8 +77,8 @@ interface Department {
 
     .section-label {
       color: #2E7DB5;
-      font-weight: 600;
-      font-size: 20px;
+      font-weight: 700;
+      font-size: 1.5rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 10px;
@@ -86,7 +86,7 @@ interface Department {
 
     .section-title {
       color: #1A2332;
-      font-size: 38px;
+      font-size: 2.5rem;
       font-weight: 700;
       line-height: 1.3;
       margin-bottom: 20px;
@@ -238,7 +238,7 @@ interface Department {
       color: white;
       border: none;
       padding: 18px 50px;
-      font-size: 18px;
+      font-size: 1.25rem;
       font-weight: 700;
       border-radius: 50px;
       cursor: pointer;

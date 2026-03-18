@@ -97,8 +97,8 @@ import { CommonModule } from '@angular/common';
 
     .hook-title {
       color: #FFFFFF;
-      font-size: 48px;
-      font-weight: 800;
+      font-size: 3rem;
+      font-weight: 700;
       line-height: 1.3;
       margin-bottom: 25px;
       text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -106,7 +106,7 @@ import { CommonModule } from '@angular/common';
 
     .hook-description {
       color: rgba(255, 255, 255, 0.95);
-      font-size: 18px;
+      font-size: 1.35rem;
       line-height: 1.8;
       margin-bottom: 35px;
       max-width: 600px;
@@ -119,7 +119,7 @@ import { CommonModule } from '@angular/common';
       padding: 16px 45px;
       border-radius: 30px;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 1.35rem;
       display: inline-flex;
       align-items: center;
       cursor: pointer;

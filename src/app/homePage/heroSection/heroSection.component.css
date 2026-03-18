@@ -98,7 +98,7 @@
 
 /* Hero Description */
 .hero-description {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   margin-bottom: 2.5rem;
   max-width: 600px;
@@ -164,7 +164,7 @@
 /* Quick Features */
 .quick-features {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease-in-out 0.8s both;
 }
